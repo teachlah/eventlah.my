@@ -9,11 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --ink:#0a0f1e;--ink2:#1a2340;--gold:#c8922a;--gold-light:#e8b455;--gold-pale:#fdf4e3;
-      --cream:#faf8f4;--slate:#64748b;--border:rgba(200,146,42,.18);--emerald:#0d7a55;--red:#dc2626;
-      --font-display:'DM Serif Display',Georgia,serif;--font-body:'DM Sans',system-ui,sans-serif;
-    }
+    :root{--ink:#0a0f1e;--ink2:#1a2340;--gold:#c8922a;--gold-light:#e8b455;--gold-pale:#fdf4e3;--cream:#faf8f4;--slate:#64748b;--border:rgba(200,146,42,.18);--emerald:#0d7a55;--red:#dc2626;--font-display:'DM Serif Display',Georgia,serif;--font-body:'DM Sans',system-ui,sans-serif;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{font-size:16px;-webkit-font-smoothing:antialiased;}
     body{font-family:var(--font-body);background:var(--cream);color:var(--ink);overflow-x:hidden;}
@@ -25,7 +21,7 @@
     .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
     .hidden{display:none!important;}
 
-    /* ── HEADER ── */
+    /* HEADER */
     #header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,244,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .3s;}
     #header.scrolled{box-shadow:0 4px 40px rgba(10,15,30,.08);}
     .hdr{max-width:1280px;margin:auto;padding:0 2rem;height:72px;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
@@ -51,7 +47,7 @@
     .btn-outline-w:hover{border-color:rgba(255,255,255,.45);}
     .btn-sm{padding:.46rem .9rem;font-size:.8rem;}
 
-    /* ── HERO ── */
+    /* HERO */
     #hero{min-height:100vh;padding-top:72px;background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;}
     .hero-bg::before{content:'';position:absolute;top:-20%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,146,42,.22) 0%,transparent 70%);pointer-events:none;}
     .hero-bg::after{content:'';position:absolute;bottom:-30%;left:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(13,122,85,.18) 0%,transparent 70%);pointer-events:none;}
@@ -78,7 +74,7 @@
     .float-txt p:first-child{font-size:.72rem;color:var(--slate);}
     .float-txt strong{font-size:.88rem;color:var(--ink);font-weight:700;}
 
-    /* ── FEATURES ── */
+    /* FEATURES */
     #features{background:#fff;padding:3rem 0;}
     .feat-inner{max-width:1280px;margin:auto;padding:0 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;}
     .feat-pill{display:flex;align-items:flex-start;gap:.9rem;padding:1.3rem;border-radius:14px;background:var(--cream);border:1px solid rgba(200,146,42,.1);transition:box-shadow .2s,transform .2s;}
@@ -92,12 +88,12 @@
     .feat-pill h4{font-size:.86rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;}
     .feat-pill p{font-size:.77rem;color:var(--slate);line-height:1.55;}
 
-    /* ── SECTION HEADINGS ── */
+    /* SECTION */
     .sec-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
     .sec-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.2vw,2.8rem);line-height:1.1;color:var(--ink);margin-top:.5rem;}
     .sec-sub{color:var(--slate);line-height:1.8;margin-top:.9rem;max-width:540px;}
 
-    /* ── EVENTS ── */
+    /* EVENTS */
     #events{background:var(--cream);padding:5.5rem 0;}
     .ev-inner{max-width:1280px;margin:auto;padding:0 2rem;}
     .ev-hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.8rem;flex-wrap:wrap;}
@@ -117,7 +113,7 @@
     .ev-meta-row svg{width:14px;height:14px;flex-shrink:0;stroke:var(--gold);fill:none;}
     .ev-desc{margin-top:.9rem;font-size:.82rem;color:var(--slate);line-height:1.65;}
     .ev-actions{margin-top:1.3rem;display:flex;gap:.55rem;align-items:center;}
-    .btn-reg{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;background:var(--ink);color:#fff;padding:.7rem 1rem;border-radius:11px;font-size:.84rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;}
+    .btn-reg{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;background:var(--ink);color:#fff;padding:.7rem 1rem;border-radius:11px;font-size:.84rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;border:none;cursor:pointer;}
     .btn-reg:hover{background:var(--gold);transform:translateY(-1px);}
     .btn-reg svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.5;}
     .ic-btn{padding:.65rem;border-radius:9px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
@@ -126,8 +122,10 @@
     .ic-del{background:#fee2e2;}.ic-del:hover{background:#fecaca;}.ic-del svg{stroke:var(--red);}
     .empty-ev{grid-column:1/-1;text-align:center;padding:4rem 2rem;color:var(--slate);}
     .empty-ev svg{width:48px;height:48px;stroke:var(--border);fill:none;margin:0 auto 1rem;display:block;}
+    .ev-loading{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:.8rem;padding:4rem;color:var(--slate);font-size:.88rem;}
+    .ev-loading span{width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;}
 
-    /* ── LEAD CAPTURE ── */
+    /* LEAD CAPTURE */
     #register{background:var(--ink);position:relative;overflow:hidden;padding:5.5rem 0;}
     #register::before{content:'';position:absolute;top:-40%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,146,42,.14) 0%,transparent 70%);pointer-events:none;}
     .reg-inner{max-width:1280px;margin:auto;padding:0 2rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
@@ -139,7 +137,7 @@
     .trust-item svg{width:16px;height:16px;stroke:var(--gold-light);fill:none;flex-shrink:0;}
     .lead-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:2.2rem;}
     .lead-box h3{font-family:var(--font-display);font-size:1.5rem;color:#fff;margin-bottom:.4rem;}
-    .lead-box .lead-sub{font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:1.6rem;}
+    .lead-sub{font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:1.6rem;}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
     .fg{display:flex;flex-direction:column;gap:.38rem;margin-bottom:.9rem;}
     .fg label{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.05em;text-transform:uppercase;}
@@ -154,9 +152,9 @@
     .succ-ring svg{width:26px;height:26px;stroke:#4ade80;fill:none;}
     .form-success h4{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.4rem;}
     .form-success p{color:rgba(255,255,255,.55);font-size:.85rem;}
-    .spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;}
+    .spinner-sm{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;}
 
-    /* ── MODULES ── */
+    /* MODULES */
     #modules{background:#fff;padding:5.5rem 0;}
     .mod-inner{max-width:1280px;margin:auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
     .mod-cards{display:flex;flex-direction:column;gap:.9rem;}
@@ -172,7 +170,7 @@
     .testi-info p:first-child{font-weight:700;color:#fff;font-size:.85rem;}
     .testi-info p:last-child{font-size:.73rem;color:rgba(255,255,255,.45);}
 
-    /* ── ADMIN PANEL ── */
+    /* ADMIN */
     #adminSection{display:none;background:#0d1224;padding:5.5rem 0;position:relative;overflow:hidden;}
     #adminSection::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.014) 40px,rgba(255,255,255,.014) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,.014) 40px,rgba(255,255,255,.014) 41px);pointer-events:none;}
     body.admin-active #adminSection{display:block;}
@@ -187,10 +185,9 @@
     .adm-tab-content{display:none;}
     .adm-tab-content.active{display:block;}
 
-    /* events tab */
-    .adm-ev-layout{display:grid;grid-template-columns:3fr 2fr;gap:1.8rem;align-items:start;}
+    /* form fields */
     .adm-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:1.8rem;}
-    .adm-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.08);}
+    .adm-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;}
     .adm-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
     .ag{display:flex;flex-direction:column;gap:.36rem;margin-bottom:.9rem;}
     .ag label{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.05em;text-transform:uppercase;}
@@ -200,8 +197,25 @@
     .ag select option{background:#1a2340;}
     .ag textarea{resize:vertical;min-height:85px;}
     .adm-form-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:.5rem;}
+    .saving-indicator{display:none;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.45);}
+    .saving-indicator span{width:14px;height:14px;border:2px solid rgba(255,255,255,.1);border-top-color:var(--gold-light);border-radius:50%;animation:spin .7s linear infinite;}
 
-    /* setup guide */
+    /* events admin list */
+    .ev-admin-list{display:flex;flex-direction:column;gap:.8rem;margin-top:1.5rem;}
+    .ev-admin-row{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;}
+    .ev-admin-row .ev-thumb{width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--ink2);}
+    .ev-admin-info{flex:1;min-width:0;}
+    .ev-admin-info h4{font-size:.88rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .ev-admin-info p{font-size:.74rem;color:rgba(255,255,255,.38);margin-top:.15rem;}
+    .ev-admin-acts{display:flex;gap:.5rem;flex-shrink:0;}
+    .ev-admin-tag{font-size:.65rem;font-weight:700;padding:.18rem .6rem;border-radius:99px;text-transform:uppercase;letter-spacing:.04em;}
+    .tag-open{background:rgba(74,222,128,.12);color:#4ade80;}
+    .tag-filling{background:rgba(250,204,21,.12);color:#facc15;}
+    .tag-full{background:rgba(248,113,113,.12);color:#f87171;}
+    .tag-soon{background:rgba(148,163,184,.1);color:#94a3b8;}
+    .ev-admin-empty{text-align:center;padding:2rem;color:rgba(255,255,255,.3);font-size:.82rem;}
+
+    /* setup card */
     .setup-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1.5rem;margin-bottom:1.5rem;}
     .setup-card h4{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
     .setup-card h4 svg{width:16px;height:16px;stroke:var(--gold-light);fill:none;}
@@ -211,30 +225,30 @@
     .step-body p{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.6;}
     .step-body p strong{color:rgba(255,255,255,.9);}
     .step-body code{font-family:monospace;font-size:.75rem;background:rgba(255,255,255,.08);padding:.12rem .4rem;border-radius:4px;color:var(--gold-light);}
-    .url-input-row{display:flex;gap:.6rem;align-items:center;margin-top:.6rem;}
-    .url-input-row input{flex:1;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.6rem .85rem;font-size:.82rem;color:#fff;font-family:var(--font-body);outline:none;transition:border-color .2s;}
-    .url-input-row input:focus{border-color:rgba(200,146,42,.5);}
-    .url-input-row input::placeholder{color:rgba(255,255,255,.25);}
+    .url-row{display:flex;gap:.6rem;align-items:center;margin-top:.6rem;}
+    .url-row input{flex:1;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.6rem .85rem;font-size:.82rem;color:#fff;font-family:var(--font-body);outline:none;transition:border-color .2s;}
+    .url-row input:focus{border-color:rgba(200,146,42,.5);}
+    .url-row input::placeholder{color:rgba(255,255,255,.25);}
     .conn-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:99px;}
-    .conn-not-set{background:rgba(148,163,184,.1);color:#94a3b8;}
-    .conn-ok{background:rgba(74,222,128,.12);color:#4ade80;}
-    .conn-err{background:rgba(220,38,38,.1);color:#f87171;}
-    .conn-testing{background:rgba(200,146,42,.1);color:var(--gold-light);}
-    .code-block{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1rem 1.1rem;font-family:monospace;font-size:.73rem;color:#e2e8f0;line-height:1.7;white-space:pre;overflow-x:auto;margin-top:.6rem;}
-    .copy-btn{font-size:.72rem;background:rgba(200,146,42,.1);color:var(--gold-light);border:1px solid rgba(200,146,42,.2);border-radius:6px;padding:.25rem .65rem;cursor:pointer;font-family:var(--font-body);transition:background .2s;}
+    .cs-none{background:rgba(148,163,184,.1);color:#94a3b8;}
+    .cs-ok{background:rgba(74,222,128,.12);color:#4ade80;}
+    .cs-err{background:rgba(220,38,38,.1);color:#f87171;}
+    .cs-test{background:rgba(200,146,42,.1);color:var(--gold-light);}
+    .code-block{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1rem 1.1rem;font-family:monospace;font-size:.72rem;color:#e2e8f0;line-height:1.7;white-space:pre;overflow-x:auto;margin-top:.6rem;max-height:320px;overflow-y:auto;}
+    .copy-btn{font-size:.72rem;background:rgba(200,146,42,.1);color:var(--gold-light);border:1px solid rgba(200,146,42,.2);border-radius:6px;padding:.25rem .65rem;cursor:pointer;font-family:var(--font-body);transition:background .2s;margin-top:.5rem;display:inline-block;}
     .copy-btn:hover{background:rgba(200,146,42,.2);}
 
     /* leads tab */
-    .leads-toolbar{display:flex;align-items:center;gap:.9rem;margin-bottom:1.5rem;flex-wrap:wrap;}
-    .leads-search{flex:1;min-width:200px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:.6rem .9rem;font-size:.84rem;color:#fff;font-family:var(--font-body);outline:none;}
-    .leads-search::placeholder{color:rgba(255,255,255,.28);}
-    .leads-search:focus{border-color:rgba(200,146,42,.5);}
-    .leads-filter{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:.6rem .85rem;font-size:.82rem;color:rgba(255,255,255,.7);font-family:var(--font-body);outline:none;cursor:pointer;}
-    .leads-filter option{background:#1a2340;}
     .leads-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem;}
     .lstat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1rem 1.1rem;}
     .lstat-num{font-size:1.55rem;font-weight:800;color:var(--gold-light);line-height:1;}
     .lstat-label{font-size:.7rem;color:rgba(255,255,255,.38);margin-top:.25rem;}
+    .leads-toolbar{display:flex;align-items:center;gap:.9rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+    .leads-search{flex:1;min-width:180px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:.6rem .9rem;font-size:.84rem;color:#fff;font-family:var(--font-body);outline:none;}
+    .leads-search::placeholder{color:rgba(255,255,255,.28);}
+    .leads-search:focus,.leads-filter:focus{border-color:rgba(200,146,42,.5);}
+    .leads-filter{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:.6rem .85rem;font-size:.82rem;color:rgba(255,255,255,.7);font-family:var(--font-body);outline:none;cursor:pointer;}
+    .leads-filter option{background:#1a2340;}
     .leads-table-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;}
     .leads-table{width:100%;border-collapse:collapse;font-size:.8rem;}
     .leads-table thead tr{background:rgba(255,255,255,.05);}
@@ -250,24 +264,20 @@
     .sp-contacted{background:rgba(200,146,42,.12);color:var(--gold-light);}
     .sp-converted{background:rgba(59,130,246,.12);color:#93c5fd;}
     .sp-cold{background:rgba(148,163,184,.1);color:#94a3b8;}
-    .lead-sel{background:transparent;border:none;color:rgba(255,255,255,.6);font-size:.75rem;font-family:var(--font-body);cursor:pointer;outline:none;padding:.2rem;}
-    .lead-sel option{background:#1a2340;}
     .pagination{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.2rem;border-top:1px solid rgba(255,255,255,.06);font-size:.78rem;color:rgba(255,255,255,.35);}
     .pg-btns{display:flex;gap:.4rem;}
     .pg-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);border-radius:7px;padding:.35rem .75rem;font-size:.76rem;cursor:pointer;transition:background .2s;font-family:var(--font-body);}
     .pg-btn:hover{background:rgba(255,255,255,.12);}
     .pg-btn.active{background:var(--gold);color:#fff;border-color:var(--gold);}
-    .pg-btn:disabled{opacity:.35;cursor:not-allowed;}
     .empty-leads{text-align:center;padding:3rem;color:rgba(255,255,255,.3);font-size:.82rem;}
     .empty-leads svg{width:44px;height:44px;stroke:rgba(255,255,255,.1);fill:none;margin:0 auto .8rem;display:block;}
     .load-spinner{display:flex;align-items:center;justify-content:center;gap:.8rem;padding:2.5rem;color:rgba(255,255,255,.4);font-size:.82rem;}
     .load-spinner span{width:20px;height:20px;border:2px solid rgba(255,255,255,.1);border-top-color:var(--gold-light);border-radius:50%;animation:spin .7s linear infinite;}
     .sync-bar{display:flex;align-items:center;gap:.6rem;font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:1rem;}
     .sync-bar svg{width:13px;height:13px;stroke:rgba(255,255,255,.35);fill:none;}
-    .sync-bar.ok svg{stroke:#4ade80;}
-    .sync-bar.err svg{stroke:#f87171;}
+    .sync-bar.ok svg{stroke:#4ade80;} .sync-bar.err svg{stroke:#f87171;}
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer{background:var(--ink);color:#fff;padding:3.5rem 0 2rem;}
     .ft-inner{max-width:1280px;margin:auto;padding:0 2rem;}
     .ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
@@ -277,7 +287,7 @@
     .ft-col a:hover{color:var(--gold-light);}
     .ft-bottom{margin-top:1.8rem;display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:rgba(255,255,255,.28);}
 
-    /* ── MODAL ── */
+    /* MODAL */
     .modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(10,15,30,.85);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:1.5rem;}
     .modal-overlay.open{display:flex;}
     .modal-box{background:#fff;border-radius:22px;max-width:420px;width:100%;padding:2.2rem;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.5);animation:fadeUp .4s cubic-bezier(.22,1,.36,1);}
@@ -294,29 +304,27 @@
     #loginError{font-size:.8rem;color:var(--red);font-weight:600;margin-bottom:.7rem;display:none;}
     .modal-note{margin-top:.9rem;font-size:.72rem;color:#94a3b8;text-align:center;}
 
-    /* ── TOAST ── */
+    /* TOAST */
     .toast{position:fixed;bottom:1.8rem;right:1.8rem;z-index:9999;background:var(--ink);color:#fff;border-left:3px solid var(--gold);border-radius:11px;padding:.9rem 1.3rem;font-size:.85rem;font-weight:600;box-shadow:0 16px 48px rgba(0,0,0,.35);transform:translateY(120%);transition:transform .35s cubic-bezier(.22,1,.36,1);max-width:300px;}
     .toast.show{transform:translateY(0);}
     .toast.t-success{border-left-color:#4ade80;}
     .toast.t-error{border-left-color:var(--red);}
 
-    /* ── ADMIN TOGGLE ── */
+    /* ADMIN VISIBILITY */
     .admin-only{display:none;}
     body.admin-active .admin-only{display:flex;}
     body.admin-active .admin-only.blk{display:block;}
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media(max-width:1024px){
       .hero-inner,.reg-inner,.mod-inner{grid-template-columns:1fr;gap:2.5rem;}
       .hero-float{display:none;}
-      .adm-ev-layout{grid-template-columns:1fr;}
       .ft-top{grid-template-columns:1fr 1fr;}
       .feat-inner{grid-template-columns:repeat(2,1fr);}
       .leads-stats{grid-template-columns:repeat(2,1fr);}
     }
     @media(max-width:640px){
-      .hdr{padding:0 1rem;}
-      nav{display:none;}
+      .hdr{padding:0 1rem;} nav{display:none;}
       .form-row,.adm-row{grid-template-columns:1fr;}
       #eventsGrid{grid-template-columns:1fr;}
       .feat-inner{grid-template-columns:1fr;}
@@ -329,7 +337,7 @@
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
+<!-- HEADER -->
 <header id="header">
   <div class="hdr">
     <a href="#hero" class="logo">
@@ -344,30 +352,26 @@
     </nav>
     <div class="hdr-actions">
       <a href="#register" class="btn btn-gold">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Register
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Register
       </a>
       <button id="adminLoginBtn" onclick="openAdminLogin()" class="btn btn-ink">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Admin
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Admin
       </button>
       <button id="adminLogoutBtn" onclick="adminLogout()" class="btn btn-danger hidden">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
-        Logout
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout
       </button>
     </div>
   </div>
 </header>
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-badge fade-up"><span class="hero-dot"></span>Upcoming financial training events</div>
       <h1 class="hero-title fade-up d1">Build Wealth.<br><em>Plan Boldly.</em><br>Live Freely.</h1>
-      <p class="hero-sub fade-up d2">Join Vetri Madani's structured financial education programmes — designed to empower families, professionals and entrepreneurs to make confident financial decisions.</p>
+      <p class="hero-sub fade-up d2">Join Vetri Madani's structured financial education programmes — designed to empower families, professionals and entrepreneurs.</p>
       <div class="hero-ctas fade-up d3">
         <a href="#register" class="btn btn-gold" style="padding:.82rem 1.8rem;font-size:.92rem;">Reserve Your Seat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="#events" class="btn btn-outline-w" style="padding:.82rem 1.8rem;font-size:.92rem;">View Events</a>
@@ -379,46 +383,26 @@
       </div>
     </div>
     <div class="hero-visual fade-up d2">
-      <div class="hero-img-wrap">
-        <img id="heroImage" src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1400&auto=format&fit=crop" alt="Vetri Madani financial training" />
-      </div>
+      <div class="hero-img-wrap"><img id="heroImage" src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1400&auto=format&fit=crop" alt="Vetri Madani"/></div>
       <div class="hero-float">
-        <div class="float-avs">
-          <img src="https://i.pravatar.cc/64?img=11" alt=""/><img src="https://i.pravatar.cc/64?img=22" alt=""/><img src="https://i.pravatar.cc/64?img=33" alt=""/>
-        </div>
+        <div class="float-avs"><img src="https://i.pravatar.cc/64?img=11" alt=""/><img src="https://i.pravatar.cc/64?img=22" alt=""/><img src="https://i.pravatar.cc/64?img=33" alt=""/></div>
         <div class="float-txt"><p>Next event filling fast</p><strong>Limited seats remaining</strong></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FEATURES ══ -->
+<!-- FEATURES -->
 <section id="features">
   <div class="feat-inner">
-    <div class="feat-pill">
-      <div class="feat-icon fi-gold"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-      <div><h4>Structured Events</h4><p>Multi-day training with clear learning outcomes and milestones.</p></div>
-    </div>
-    <div class="feat-pill">
-      <div class="feat-icon fi-ink"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 7 12.1 19.79 19.79 0 0 1 2.12 3.18 2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-      <div><h4>Expert Facilitators</h4><p>Led by certified financial planners with real-world experience.</p></div>
-    </div>
-    <div class="feat-pill">
-      <div class="feat-icon fi-green"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div><h4>Actionable Outcomes</h4><p>Walk away with personalised financial plans ready to implement.</p></div>
-    </div>
-    <div class="feat-pill admin-only blk">
-      <div class="feat-icon fi-red"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div><h4>Admin Active</h4><p>Leads sync to Google Sheets. Manage events and view registrations below.</p></div>
-    </div>
-    <div class="feat-pill">
-      <div class="feat-icon fi-green"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div><h4>Community Network</h4><p>Join a growing network of financially empowered individuals.</p></div>
-    </div>
+    <div class="feat-pill"><div class="feat-icon fi-gold"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><h4>Structured Events</h4><p>Multi-day training with clear learning outcomes and milestones.</p></div></div>
+    <div class="feat-pill"><div class="feat-icon fi-ink"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.69-5.9 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><h4>Expert Facilitators</h4><p>Led by certified financial planners with real-world experience.</p></div></div>
+    <div class="feat-pill"><div class="feat-icon fi-green"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><h4>Actionable Outcomes</h4><p>Walk away with personalised financial plans ready to implement.</p></div></div>
+    <div class="feat-pill"><div class="feat-icon fi-green"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><h4>Community Network</h4><p>Join a growing network of financially empowered individuals.</p></div></div>
   </div>
 </section>
 
-<!-- ══ EVENTS ══ -->
+<!-- EVENTS -->
 <section id="events">
   <div class="ev-inner">
     <div class="ev-hdr">
@@ -429,11 +413,11 @@
       </div>
       <a href="#register" class="btn btn-gold">Reserve a Seat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
-    <div id="eventsGrid"></div>
+    <div id="eventsGrid"><div class="ev-loading"><span></span>Loading events…</div></div>
   </div>
 </section>
 
-<!-- ══ LEAD CAPTURE ══ -->
+<!-- LEAD CAPTURE -->
 <section id="register">
   <div class="reg-inner">
     <div class="reg-left">
@@ -452,33 +436,24 @@
         <p class="lead-sub">Tell us about yourself and which event interests you.</p>
         <div id="leadFormInner">
           <div class="form-row">
-            <div class="fg"><label>First Name *</label><input type="text" id="lf_first" placeholder="Ahmad" /></div>
-            <div class="fg"><label>Last Name *</label><input type="text" id="lf_last" placeholder="Rizal" /></div>
+            <div class="fg"><label>First Name *</label><input type="text" id="lf_first" placeholder="Ahmad"/></div>
+            <div class="fg"><label>Last Name *</label><input type="text" id="lf_last" placeholder="Rizal"/></div>
           </div>
-          <div class="fg"><label>Email Address *</label><input type="email" id="lf_email" placeholder="ahmad@example.com" /></div>
-          <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="lf_phone" placeholder="+60 12 345 6789" /></div>
-          <div class="fg"><label>Interested Event</label>
-            <select id="lf_event"><option value="">-- Select an event --</option></select>
-          </div>
-          <div class="fg"><label>Your Occupation</label><input type="text" id="lf_occupation" placeholder="e.g. Business owner, Teacher, Executive" /></div>
+          <div class="fg"><label>Email Address *</label><input type="email" id="lf_email" placeholder="ahmad@example.com"/></div>
+          <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="lf_phone" placeholder="+60 12 345 6789"/></div>
+          <div class="fg"><label>Interested Event</label><select id="lf_event"><option value="">-- Select an event --</option></select></div>
+          <div class="fg"><label>Your Occupation</label><input type="text" id="lf_occupation" placeholder="e.g. Business owner, Teacher, Executive"/></div>
           <div class="fg"><label>How Did You Hear About Us?</label>
             <select id="lf_source">
               <option value="">-- Select --</option>
-              <option>Facebook / Social Media</option>
-              <option>Friend / Family Referral</option>
-              <option>Google Search</option>
-              <option>WhatsApp Group</option>
-              <option>Previous Participant</option>
-              <option>Other</option>
+              <option>Facebook / Social Media</option><option>Friend / Family Referral</option>
+              <option>Google Search</option><option>WhatsApp Group</option>
+              <option>Previous Participant</option><option>Other</option>
             </select>
           </div>
           <button type="button" onclick="submitLead()" id="leadSubmitBtn" class="btn btn-gold" style="width:100%;padding:.88rem;font-size:.92rem;justify-content:center;margin-top:.3rem;">
-            Submit Registration
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Submit Registration <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <p id="sheetsWarning" style="display:none;margin-top:.8rem;font-size:.74rem;color:rgba(255,255,255,.4);text-align:center;">
-            ⚠️ Google Sheets not connected yet — lead saved locally only.
-          </p>
         </div>
         <div class="form-success" id="leadSuccess">
           <div class="succ-ring"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -491,7 +466,7 @@
   </div>
 </section>
 
-<!-- ══ PROGRAMME ══ -->
+<!-- PROGRAMME -->
 <section id="modules">
   <div class="mod-inner">
     <div>
@@ -516,200 +491,239 @@
   </div>
 </section>
 
-<!-- ══ ADMIN PANEL ══ -->
+<!-- ADMIN PANEL -->
 <section id="adminSection">
   <div class="adm-inner">
     <div class="adm-hdr">
       <div>
-        <div class="adm-badge">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Admin Workspace
-        </div>
+        <div class="adm-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Admin Workspace</div>
         <h2 class="adm-title">Manage Events & Leads</h2>
       </div>
       <div class="adm-actions">
-        <button onclick="fetchLeadsFromSheets()" class="btn btn-ghost btn-sm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.21"/></svg>
-          Refresh Leads
-        </button>
-        <button onclick="exportLeadsCSV()" class="btn btn-ghost btn-sm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Export CSV
-        </button>
-        <button onclick="resetDemoData()" class="btn btn-sm" style="background:rgba(220,38,38,.1);color:#f87171;border:1px solid rgba(220,38,38,.18);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.21"/></svg>
-          Reset Demo
-        </button>
+        <button onclick="fetchAllFromSheets()" class="btn btn-ghost btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.21"/></svg>Refresh All</button>
+        <button onclick="exportLeadsCSV()" class="btn btn-ghost btn-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Export Leads CSV</button>
       </div>
     </div>
 
     <div class="adm-tabs">
-      <button class="adm-tab active" onclick="switchTab('setup')">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-        Google Sheets Setup
-      </button>
-      <button class="adm-tab" onclick="switchTab('events')">Events</button>
-      <button class="adm-tab" onclick="switchTab('leads')">
-        Leads <span id="leadsTabCount" style="background:var(--gold);color:#fff;font-size:.65rem;padding:.15rem .5rem;border-radius:99px;margin-left:.3rem;">0</span>
-      </button>
+      <button class="adm-tab active" onclick="switchTab('setup')">⚙ Setup</button>
+      <button class="adm-tab" onclick="switchTab('events')">Events <span id="evTabCount" style="background:var(--gold);color:#fff;font-size:.65rem;padding:.15rem .5rem;border-radius:99px;margin-left:.3rem;">0</span></button>
+      <button class="adm-tab" onclick="switchTab('leads')">Leads <span id="leadsTabCount" style="background:var(--gold);color:#fff;font-size:.65rem;padding:.15rem .5rem;border-radius:99px;margin-left:.3rem;">0</span></button>
     </div>
 
-    <!-- ══ SETUP TAB ══ -->
+    <!-- SETUP TAB -->
     <div id="tab-setup" class="adm-tab-content active">
-      <div style="max-width:800px;">
-
+      <div style="max-width:820px;">
         <div class="setup-card">
-          <h4><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Connection Status</h4>
-          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
-            <span class="conn-status conn-not-set" id="connStatus">⬤ &nbsp;Not Connected</span>
+          <h4><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Google Sheets Connection</h4>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem;">
+            <span class="conn-status cs-none" id="connStatus">⬤ &nbsp;Not Connected</span>
             <button onclick="testConnection()" class="btn btn-ghost btn-sm">Test Connection</button>
-            <button onclick="openSheetsDirect()" class="btn btn-ghost btn-sm">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Open My Sheet
-            </button>
           </div>
-          <div class="url-input-row" style="margin-top:1rem;">
-            <input type="url" id="sheetsWebAppUrl" placeholder="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" />
-            <button onclick="saveScriptUrl()" class="btn btn-gold btn-sm">Save URL</button>
+          <div class="url-row">
+            <input type="url" id="sheetsWebAppUrl" placeholder="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"/>
+            <button onclick="saveScriptUrl()" class="btn btn-gold btn-sm">Save & Connect</button>
           </div>
-          <p style="font-size:.73rem;color:rgba(255,255,255,.35);margin-top:.5rem;">Paste your Google Apps Script Web App URL above after completing Step 3 below.</p>
+          <p style="font-size:.73rem;color:rgba(255,255,255,.35);margin-top:.5rem;">Paste your Google Apps Script Web App URL here after completing Step 3 below.</p>
         </div>
 
         <div class="setup-card">
-          <h4><svg viewBox="0 0 24 24" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Setup Guide — 3 Steps, ~5 Minutes</h4>
+          <h4><svg viewBox="0 0 24 24" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Setup Guide — 3 Steps (~5 min)</h4>
 
           <div class="setup-step">
             <div class="step-num">1</div>
             <div class="step-body">
-              <p><strong>Create a new Google Sheet.</strong> Go to <a href="https://sheets.new" target="_blank" style="color:var(--gold-light);">sheets.new</a> and name it <code>Vetri Madani Leads</code>. In Row 1, add these exact headers in columns A→J:</p>
+              <p><strong>Create a new Google Sheet</strong> at <a href="https://sheets.new" target="_blank" style="color:var(--gold-light);">sheets.new</a>. Name it <code>Vetri Madani</code>.</p>
+              <p style="margin-top:.5rem;">Create <strong>two tabs</strong> at the bottom:</p>
+              <p>• Rename <strong>Sheet1</strong> → <code>Leads</code> — add these headers in Row 1:</p>
               <div class="code-block">ID	Name	Email	Phone	Event	Occupation	Source	Status	Notes	Timestamp</div>
-              <button class="copy-btn" onclick="copyText('ID\tName\tEmail\tPhone\tEvent\tOccupation\tSource\tStatus\tNotes\tTimestamp')">Copy headers</button>
+              <button class="copy-btn" onclick="copyText('ID\tName\tEmail\tPhone\tEvent\tOccupation\tSource\tStatus\tNotes\tTimestamp')">Copy Leads headers</button>
+              <p style="margin-top:.7rem;">• Add a second tab, name it <code>Events</code> — add these headers in Row 1:</p>
+              <div class="code-block">ID	Title	Category	Date	Venue	Seats	Status	Link	Image	Video	Description</div>
+              <button class="copy-btn" onclick="copyText('ID\tTitle\tCategory\tDate\tVenue\tSeats\tStatus\tLink\tImage\tVideo\tDescription')">Copy Events headers</button>
             </div>
           </div>
 
           <div class="setup-step">
             <div class="step-num">2</div>
             <div class="step-body">
-              <p><strong>Open Apps Script.</strong> In your Sheet, click <strong>Extensions → Apps Script</strong>. Delete any existing code, paste the script below, then click <strong>Save</strong>.</p>
-              <div class="code-block" id="appsScriptCode">const SHEET_NAME = 'Sheet1';
+              <p><strong>Open Apps Script.</strong> In your Sheet click <strong>Extensions → Apps Script</strong>. Delete all existing code, paste the script below, click <strong>Save (Ctrl+S)</strong>.</p>
+              <div class="code-block" id="appsScriptCode">// ── Vetri Madani — Apps Script v4 ──────────────────────
+// Handles both Events and Leads sheets.
+// Sheet must have tabs named exactly: "Leads" and "Events"
+
+const SS = SpreadsheetApp.getActiveSpreadsheet();
 
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-    const id = Date.now().toString();
-    sheet.appendRow([
-      id,
-      data.name      || '',
-      data.email     || '',
-      data.phone     || '',
-      data.event     || '',
-      data.occupation|| '',
-      data.source    || '',
-      data.status    || 'new',
-      data.notes     || '',
-      new Date().toLocaleString('en-MY', {timeZone:'Asia/Kuala_Lumpur'})
-    ]);
-    return ContentService
-      .createTextOutput(JSON.stringify({success:true, id}))
-      .setMimeType(ContentService.MimeType.JSON);
+    const payload = JSON.parse(e.postData.contents);
+    const action  = payload.action;
+
+    if (action === 'addLead')    return addLead(payload.data);
+    if (action === 'addEvent')   return saveEvent(payload.data, false);
+    if (action === 'editEvent')  return saveEvent(payload.data, true);
+    if (action === 'deleteEvent') return deleteEvent(payload.id);
+
+    return jsonOut({success:false, error:'Unknown action: ' + action});
   } catch(err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({success:false, error:err.message}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonOut({success:false, error:err.message});
   }
 }
 
 function doGet(e) {
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-    const rows  = sheet.getDataRange().getValues();
-    const headers = rows[0];
-    const leads = rows.slice(1).map(row => {
-      const obj = {};
-      headers.forEach((h, i) => obj[h.toLowerCase()] = row[i]);
-      return obj;
-    });
-    return ContentService
-      .createTextOutput(JSON.stringify({success:true, leads}))
-      .setMimeType(ContentService.MimeType.JSON);
+    const type = (e.parameter.type || 'leads');
+    if (type === 'events') return jsonOut({success:true, events: getSheetRows('Events')});
+    return jsonOut({success:true, leads: getSheetRows('Leads')});
   } catch(err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({success:false, error:err.message}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonOut({success:false, error:err.message});
   }
+}
+
+// ── LEADS ────────────────────────────────────────────────
+function addLead(d) {
+  const sheet = SS.getSheetByName('Leads');
+  sheet.appendRow([
+    Date.now().toString(), d.name||'', d.email||'', d.phone||'',
+    d.event||'', d.occupation||'', d.source||'', 'new', '',
+    new Date().toLocaleString('en-MY',{timeZone:'Asia/Kuala_Lumpur'})
+  ]);
+  return jsonOut({success:true});
+}
+
+// ── EVENTS ───────────────────────────────────────────────
+function saveEvent(d, isEdit) {
+  const sheet = SS.getSheetByName('Events');
+  if (isEdit) {
+    // Find row by ID and update it
+    const data = sheet.getDataRange().getValues();
+    for (let i = 1; i < data.length; i++) {
+      if (String(data[i][0]) === String(d.id)) {
+        sheet.getRange(i+1, 1, 1, 11).setValues([[
+          d.id, d.title||'', d.category||'', d.date||'',
+          d.venue||'', d.seats||'', d.status||'open',
+          d.link||'', d.image||'', d.video||'', d.description||''
+        ]]);
+        return jsonOut({success:true});
+      }
+    }
+    return jsonOut({success:false, error:'Event not found'});
+  } else {
+    // New event — prepend at top (insert row 2, push others down)
+    const id = Date.now().toString();
+    sheet.insertRowAfter(1);
+    sheet.getRange(2, 1, 1, 11).setValues([[
+      id, d.title||'', d.category||'', d.date||'',
+      d.venue||'', d.seats||'', d.status||'open',
+      d.link||'', d.image||'', d.video||'', d.description||''
+    ]]);
+    return jsonOut({success:true, id});
+  }
+}
+
+function deleteEvent(id) {
+  const sheet = SS.getSheetByName('Events');
+  const data  = sheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    if (String(data[i][0]) === String(id)) {
+      sheet.deleteRow(i + 1);
+      return jsonOut({success:true});
+    }
+  }
+  return jsonOut({success:false, error:'Event not found'});
+}
+
+// ── HELPERS ──────────────────────────────────────────────
+function getSheetRows(sheetName) {
+  const sheet = SS.getSheetByName(sheetName);
+  if (!sheet) return [];
+  const rows  = sheet.getDataRange().getValues();
+  if (rows.length < 2) return [];
+  const headers = rows[0].map(h => h.toString().toLowerCase().trim());
+  return rows.slice(1).map(row => {
+    const obj = {};
+    headers.forEach((h, i) => obj[h] = row[i] !== undefined ? row[i].toString() : '');
+    return obj;
+  }).filter(r => r.id || r.title || r.name); // skip blank rows
+}
+
+function jsonOut(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
 }</div>
-              <button class="copy-btn" style="margin-top:.5rem;" onclick="copyScriptCode()">Copy Apps Script code</button>
+              <button class="copy-btn" onclick="copyScriptCode()">Copy Apps Script code</button>
             </div>
           </div>
 
           <div class="setup-step">
             <div class="step-num">3</div>
             <div class="step-body">
-              <p><strong>Deploy as Web App.</strong> In Apps Script, click <strong>Deploy → New deployment</strong>. Set:</p>
-              <p>• Type: <code>Web app</code><br>
-              • Execute as: <code>Me</code><br>
-              • Who has access: <code>Anyone</code></p>
-              <p style="margin-top:.5rem;">Click <strong>Deploy</strong>, authorise when prompted, then <strong>copy the Web App URL</strong> and paste it in the Connection Status box above.</p>
+              <p><strong>Deploy as Web App.</strong> Click <strong>Deploy → New deployment</strong>:</p>
+              <p>• Type: <code>Web app</code> &nbsp;• Execute as: <code>Me</code> &nbsp;• Access: <code>Anyone</code></p>
+              <p style="margin-top:.4rem;">Click <strong>Deploy</strong>, authorise when asked, then copy the <strong>Web App URL</strong> and paste it in the Connection box above. Click <strong>Save & Connect</strong>.</p>
+              <p style="margin-top:.6rem;color:rgba(255,255,255,.38);font-size:.76rem;">⚠ Every time you edit the Apps Script code you must create a <strong>New deployment</strong> — redeploying to an existing one does not update the live script.</p>
             </div>
           </div>
         </div>
 
         <div class="setup-card" style="background:rgba(74,222,128,.04);border-color:rgba(74,222,128,.12);">
-          <h4 style="color:#4ade80;">
-            <svg viewBox="0 0 24 24" stroke-width="2" style="stroke:#4ade80;"><polyline points="20 6 9 17 4 12"/></svg>
-            What Happens After Setup
-          </h4>
-          <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.8;">
-            Every time someone submits the registration form, the lead is <strong style="color:rgba(255,255,255,.8);">written directly to your Google Sheet</strong> in real time — from any device, any browser, anywhere in the world.<br><br>
-            The <strong style="color:rgba(255,255,255,.8);">Leads tab</strong> in this admin panel fetches live data from that same Sheet so your marketing team can review, filter, and update lead statuses here.<br><br>
-            Your Sheet becomes the single source of truth — share it with the team, set up Google Sheets notifications, or connect it to Google Looker Studio for a live dashboard.
+          <h4 style="color:#4ade80;"><svg viewBox="0 0 24 24" stroke-width="2" style="stroke:#4ade80;"><polyline points="20 6 9 17 4 12"/></svg>What Works After Setup</h4>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.9;">
+            ✅ <strong style="color:#fff;">Events tab</strong> — Add, edit, delete events from any device. Changes appear live on the public page for all visitors within seconds.<br>
+            ✅ <strong style="color:#fff;">Leads tab</strong> — Every registration POSTs to your Leads sheet in real time.<br>
+            ✅ <strong style="color:#fff;">Public visitors</strong> — Events section loads fresh from Sheets on every page load — no caching, no stale data.<br>
+            ✅ <strong style="color:#fff;">Registration form</strong> — Event dropdown always reflects the current live events list from Sheets.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- ══ EVENTS TAB ══ -->
+    <!-- EVENTS TAB -->
     <div id="tab-events" class="adm-tab-content">
-      <div class="adm-ev-layout">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;align-items:start;" id="evAdmLayout">
+
+        <!-- Form -->
         <div class="adm-card">
-          <h3 id="adminFormTitle">Add New Event</h3>
-          <input type="hidden" id="editIndex" value="" />
+          <h3 id="adminFormTitle">
+            Add New Event
+            <div class="saving-indicator" id="savingIndicator"><span></span>Saving to Sheets…</div>
+          </h3>
+          <input type="hidden" id="editId" value=""/>
           <div class="adm-row">
-            <div class="ag"><label>Event Title *</label><input id="a_title" placeholder="Wealth Fundamentals" /></div>
-            <div class="ag"><label>Module / Category</label><input id="a_category" placeholder="Module 1" /></div>
-            <div class="ag"><label>Date</label><input id="a_date" placeholder="4 – 6 Sept 2026" /></div>
-            <div class="ag"><label>Venue</label><input id="a_venue" placeholder="Sheraton PJ" /></div>
-            <div class="ag"><label>Max Seats</label><input id="a_seats" type="number" placeholder="50" /></div>
+            <div class="ag"><label>Event Title *</label><input id="a_title" placeholder="Wealth Fundamentals"/></div>
+            <div class="ag"><label>Module / Category</label><input id="a_category" placeholder="Module 1"/></div>
+            <div class="ag"><label>Date</label><input id="a_date" placeholder="4 – 6 Sept 2026"/></div>
+            <div class="ag"><label>Venue</label><input id="a_venue" placeholder="Sheraton PJ, PJ"/></div>
+            <div class="ag"><label>Max Seats</label><input id="a_seats" type="number" placeholder="50"/></div>
             <div class="ag"><label>Status</label>
               <select id="a_status"><option value="open">Open</option><option value="filling">Filling Fast</option><option value="full">Fully Booked</option><option value="soon">Coming Soon</option></select>
             </div>
           </div>
-          <div class="ag"><label>Registration URL *</label><input id="a_link" type="url" placeholder="https://your-form.com/register" /></div>
-          <div class="ag"><label>Banner Image URL</label><input id="a_image" placeholder="https://images.unsplash.com/..." /></div>
-          <div class="ag"><label>YouTube Embed URL (optional)</label><input id="a_video" placeholder="https://www.youtube.com/embed/xxxxx" /></div>
-          <div class="ag"><label>Upload Local Image</label><input type="file" id="mediaUpload" accept="image/*,video/*" style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:9px;padding:.65rem;color:rgba(255,255,255,.55);font-size:.8rem;width:100%;" /></div>
+          <div class="ag"><label>Registration URL *</label><input id="a_link" type="url" placeholder="https://docs.google.com/forms/your-form"/></div>
+          <div class="ag"><label>Banner Image URL</label><input id="a_image" placeholder="https://images.unsplash.com/…"/></div>
+          <div class="ag"><label>YouTube Embed URL (optional)</label><input id="a_video" placeholder="https://www.youtube.com/embed/xxxxx"/></div>
           <div class="ag"><label>Description</label><textarea id="a_description" rows="4" placeholder="Describe the event — who it's for, what they'll learn, outcomes…"></textarea></div>
           <div class="adm-form-actions">
-            <button onclick="saveEvent()" class="btn btn-gold">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-              Save Event
+            <button onclick="saveEvent()" class="btn btn-gold" id="saveEvBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save to Sheets
             </button>
-            <button onclick="resetAdminForm()" class="btn btn-sm" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12);">Clear</button>
+            <button onclick="resetEvForm()" class="btn btn-sm" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12);">Clear</button>
           </div>
+          <p id="noSheetsWarning" style="display:none;font-size:.74rem;color:#f87171;margin-top:.7rem;">⚠ Google Sheets not connected — connect in the Setup tab first.</p>
         </div>
-        <div class="adm-card">
-          <h3>Sheets Integration</h3>
-          <p style="font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1rem;">Events are stored locally in your browser. Leads go to Google Sheets. Complete the setup guide on the Setup tab to enable live lead sync.</p>
-          <div style="display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:rgba(255,255,255,.5);">
-            <span id="evConnDot" style="width:8px;height:8px;border-radius:50%;background:#94a3b8;flex-shrink:0;"></span>
-            <span id="evConnLabel">Google Sheets not connected</span>
+
+        <!-- Current Events List -->
+        <div>
+          <div class="adm-card" style="margin-bottom:1rem;">
+            <h3>Live Events <small style="font-size:.72rem;color:rgba(255,255,255,.35);font-weight:400;">from Google Sheets</small></h3>
+            <div id="evAdminList"><div class="ev-admin-empty">Connect Sheets to manage events here.</div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ══ LEADS TAB ══ -->
+    <!-- LEADS TAB -->
     <div id="tab-leads" class="adm-tab-content">
       <div class="leads-stats">
         <div class="lstat"><div class="lstat-num" id="ls-total">0</div><div class="lstat-label">Total Leads</div></div>
@@ -722,116 +736,82 @@ function doGet(e) {
         <span id="syncMsg">Connecting to Google Sheets…</span>
       </div>
       <div class="leads-toolbar">
-        <input class="leads-search" id="leadsSearch" type="text" placeholder="Search name, email, phone…" oninput="renderLeadsTable()" />
-        <select class="leads-filter" id="leadsEventFilter" onchange="renderLeadsTable()">
-          <option value="">All Events</option>
-        </select>
+        <input class="leads-search" id="leadsSearch" type="text" placeholder="Search name, email, phone…" oninput="renderLeadsTable()"/>
+        <select class="leads-filter" id="leadsEventFilter" onchange="renderLeadsTable()"><option value="">All Events</option></select>
         <select class="leads-filter" id="leadsStatusFilter" onchange="renderLeadsTable()">
-          <option value="">All Statuses</option>
-          <option value="new">New</option>
-          <option value="contacted">Contacted</option>
-          <option value="converted">Converted</option>
-          <option value="cold">Cold</option>
+          <option value="">All Statuses</option><option value="new">New</option>
+          <option value="contacted">Contacted</option><option value="converted">Converted</option><option value="cold">Cold</option>
         </select>
       </div>
       <div class="leads-table-wrap">
         <table class="leads-table">
-          <thead><tr>
-            <th>Lead</th><th>Contact</th><th>Event Interest</th><th>Source</th><th>Status</th><th>Registered</th>
-          </tr></thead>
-          <tbody id="leadsTableBody">
-            <tr><td colspan="6"><div class="load-spinner"><span></span>Loading leads from Google Sheets…</div></td></tr>
-          </tbody>
+          <thead><tr><th>Lead</th><th>Contact</th><th>Event Interest</th><th>Source</th><th>Status</th><th>Registered</th></tr></thead>
+          <tbody id="leadsTableBody"><tr><td colspan="6"><div class="load-spinner"><span></span>Loading leads…</div></td></tr></tbody>
         </table>
-        <div class="pagination">
-          <span id="pgInfo">—</span>
-          <div class="pg-btns" id="pgBtns"></div>
-        </div>
+        <div class="pagination"><span id="pgInfo">—</span><div class="pg-btns" id="pgBtns"></div></div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
   <div class="ft-inner">
     <div class="ft-top">
       <div class="ft-brand">
-        <div class="logo">
-          <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div>
-          <div class="logo-text"><h2 style="color:#fff;">Vetri Madani</h2><p>Training & Events</p></div>
-        </div>
+        <div class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div><div class="logo-text"><h2 style="color:#fff;">Vetri Madani</h2><p>Training & Events</p></div></div>
         <p>Empowering communities through structured financial education and professional training programmes.</p>
       </div>
       <div class="ft-col"><h5>Events</h5><a href="#events">Upcoming Events</a><a href="#modules">Our Modules</a><a href="#register">Register Now</a></div>
       <div class="ft-col"><h5>Programme</h5><a href="#modules">Wealth Fundamentals</a><a href="#modules">Retirement Planning</a><a href="#modules">Smart Investing</a></div>
       <div class="ft-col"><h5>Contact</h5><a href="mailto:info@vetrimadani.com">info@vetrimadani.com</a><a href="https://wa.me/601234567890" target="_blank">WhatsApp Us</a><a href="#">Facebook</a><a href="#">Instagram</a></div>
     </div>
-    <div class="ft-bottom">
-      <span>© <span id="year"></span> Vetri Madani. All rights reserved.</span>
-      <span>Crafted for financial empowerment.</span>
-    </div>
+    <div class="ft-bottom"><span>© <span id="year"></span> Vetri Madani. All rights reserved.</span><span>Crafted for financial empowerment.</span></div>
   </div>
 </footer>
 
-<!-- ══ ADMIN LOGIN MODAL ══ -->
+<!-- ADMIN LOGIN MODAL -->
 <div class="modal-overlay" id="adminLoginModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeAdminLogin()"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div class="modal-icon"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
     <h2>Admin Login</h2>
     <p>Enter your credentials to access the event management and leads panel.</p>
-    <div class="mg"><label>Username</label><input id="adminUsername" placeholder="admin" autocomplete="username" /></div>
-    <div class="mg"><label>Password</label><input id="adminPassword" type="password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doAdminLogin()" /></div>
+    <div class="mg"><label>Username</label><input id="adminUsername" placeholder="admin" autocomplete="username"/></div>
+    <div class="mg"><label>Password</label><input id="adminPassword" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doAdminLogin()"/></div>
     <p id="loginError">Incorrect username or password.</p>
     <button onclick="doAdminLogin()" class="btn btn-ink" style="width:100%;padding:.88rem;font-size:.9rem;justify-content:center;">
       Login <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
     </button>
-    <p class="modal-note">Pilot mode — replace with backend auth for production.</p>
+    <p class="modal-note">Replace hardcoded credentials with backend auth before going live.</p>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-/* ═══════════════════════════════════════════
-   CONFIG
-═══════════════════════════════════════════ */
-const ADMIN_USER  = 'admin';
-const ADMIN_PASS  = 'vetri2025';
-const EVENTS_KEY  = 'vm_events_v3';
-const AUTH_KEY    = 'vm_admin_auth';
-const SCRIPT_KEY  = 'vm_sheets_url';   // stores the Apps Script Web App URL
+/* ═══════════════════ CONFIG ═══════════════════ */
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'vetri2025';
+const AUTH_KEY   = 'vm_admin_auth';
+const SCRIPT_KEY = 'vm_sheets_url_v4';
 
-let SHEETS_URL    = localStorage.getItem(SCRIPT_KEY) || '';
-let events        = [];
-let leads         = [];          // fetched from Sheets
-let leadsPage     = 1;
-const PER_PAGE    = 10;
+let SHEETS_URL = localStorage.getItem(SCRIPT_KEY) || '';
+let events     = [];   // loaded from Sheets
+let leads      = [];   // loaded from Sheets
+let leadsPage  = 1;
+const PER_PAGE = 10;
 
-const defaultEvents = [
-  {id:1,title:'Wealth Fundamentals',category:'Module 1',date:'4 – 6 Sept 2026',venue:'Sheraton PJ, Petaling Jaya',seats:50,status:'filling',description:'Master budgeting, cash-flow management, debt reduction and early investment strategies for a stronger family future.',image:'https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1200&auto=format&fit=crop',video:'',link:'https://example.com/register-module-1'},
-  {id:2,title:'Retirement Planning',category:'Module 6',date:'18 – 20 Sept 2026',venue:'Sheraton PJ, Petaling Jaya',seats:40,status:'open',description:'Learn EPF planning, private pension options, estate preparation and retirement income structuring for a secure future.',image:'https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop',video:'',link:'https://example.com/register-module-6'},
-  {id:3,title:'Financial Confidence Workshop',category:'Workshop',date:'Coming Soon',venue:'Kuala Lumpur',seats:null,status:'soon',description:'A practical workshop for professionals, families, young graduates and SME owners to improve financial decisions.',image:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop',video:'',link:'https://example.com/register-workshop'}
-];
-
-/* ═══════════════════════════════════════════
-   INIT
-═══════════════════════════════════════════ */
-function init() {
-  const raw = localStorage.getItem(EVENTS_KEY);
-  events = raw ? JSON.parse(raw) : [...defaultEvents];
+/* ═══════════════════ INIT ═══════════════════ */
+async function init() {
   document.getElementById('year').textContent = new Date().getFullYear();
-  // Restore URL input
   if (SHEETS_URL) document.getElementById('sheetsWebAppUrl').value = SHEETS_URL;
+  updateConnStatusUI();
+  await fetchEvents();         // load events for public page on load
   applyAdminUI();
-  updateConnStatus();
 }
 
-/* ═══════════════════════════════════════════
-   AUTH
-═══════════════════════════════════════════ */
+/* ═══════════════════ AUTH ═══════════════════ */
 function isAdmin() { return sessionStorage.getItem(AUTH_KEY) === 'true'; }
 
 function applyAdminUI() {
@@ -839,12 +819,12 @@ function applyAdminUI() {
     document.body.classList.add('admin-active');
     document.getElementById('adminLogoutBtn').classList.remove('hidden');
     document.getElementById('adminLoginBtn').classList.add('hidden');
+    if (SHEETS_URL) fetchAllFromSheets();
   } else {
     document.body.classList.remove('admin-active');
     document.getElementById('adminLogoutBtn').classList.add('hidden');
     document.getElementById('adminLoginBtn').classList.remove('hidden');
   }
-  renderEvents();
 }
 
 function doAdminLogin() {
@@ -855,408 +835,426 @@ function doAdminLogin() {
     closeAdminLogin();
     applyAdminUI();
     showToast('Logged in as Admin', 'success');
-    if (SHEETS_URL) fetchLeadsFromSheets();
   } else {
     document.getElementById('loginError').style.display = 'block';
     document.getElementById('adminPassword').value = '';
   }
 }
 
-function adminLogout() { sessionStorage.removeItem(AUTH_KEY); applyAdminUI(); showToast('Logged out'); }
+function adminLogout() { sessionStorage.removeItem(AUTH_KEY); applyAdminUI(); document.body.classList.remove('admin-active'); showToast('Logged out'); }
 function openAdminLogin() { document.getElementById('adminLoginModal').classList.add('open'); document.getElementById('loginError').style.display='none'; setTimeout(()=>document.getElementById('adminUsername').focus(),100); }
 function closeAdminLogin() { document.getElementById('adminLoginModal').classList.remove('open'); }
 
-/* ═══════════════════════════════════════════
-   GOOGLE SHEETS — URL MANAGEMENT
-═══════════════════════════════════════════ */
+/* ═══════════════════ SHEETS URL ═══════════════════ */
 function saveScriptUrl() {
   const val = document.getElementById('sheetsWebAppUrl').value.trim();
-  if (!val || !val.startsWith('https://script.google.com')) {
-    showToast('Please paste a valid Apps Script URL', 'error'); return;
-  }
+  if (!val.startsWith('https://script.google.com')) { showToast('Please paste a valid Apps Script URL','error'); return; }
   SHEETS_URL = val;
   localStorage.setItem(SCRIPT_KEY, SHEETS_URL);
-  updateConnStatus();
+  updateConnStatusUI();
   showToast('URL saved — testing connection…');
   testConnection();
 }
 
-function updateConnStatus() {
-  const el  = document.getElementById('connStatus');
-  const dot = document.getElementById('evConnDot');
-  const lbl = document.getElementById('evConnLabel');
-  if (!SHEETS_URL) {
-    el.className='conn-status conn-not-set'; el.textContent='⬤  Not Connected';
-    dot.style.background='#94a3b8'; lbl.textContent='Google Sheets not connected';
-  } else {
-    el.className='conn-status conn-testing'; el.textContent='⬤  URL Saved';
-    dot.style.background='#facc15'; lbl.textContent='Google Sheets URL saved';
-  }
+function updateConnStatusUI() {
+  const el = document.getElementById('connStatus');
+  if (!SHEETS_URL) { el.className='conn-status cs-none'; el.innerHTML='⬤ &nbsp;Not Connected'; }
+  else { el.className='conn-status cs-test'; el.innerHTML='⬤ &nbsp;URL Saved'; }
 }
 
 async function testConnection() {
-  if (!SHEETS_URL) { showToast('Paste your Apps Script URL first', 'error'); return; }
+  if (!SHEETS_URL) { showToast('Paste your Apps Script URL first','error'); return; }
   const el = document.getElementById('connStatus');
-  el.className='conn-status conn-testing'; el.textContent='⬤  Testing…';
+  el.className='conn-status cs-test'; el.innerHTML='⬤ &nbsp;Testing…';
   try {
-    const res  = await fetchWithCors(SHEETS_URL + '?action=ping');
+    const res  = await fetch(SHEETS_URL + '?type=events');
     const data = await res.json();
-    if (data.success || data.leads) {
-      el.className='conn-status conn-ok'; el.textContent='⬤  Connected ✓';
-      document.getElementById('evConnDot').style.background='#4ade80';
-      document.getElementById('evConnLabel').textContent='Connected to Google Sheets ✓';
-      showToast('Google Sheets connected!', 'success');
-      fetchLeadsFromSheets();
-    } else { throw new Error(data.error||'Unexpected response'); }
+    if (data.success) {
+      el.className='conn-status cs-ok'; el.innerHTML='⬤ &nbsp;Connected ✓';
+      showToast('Google Sheets connected!','success');
+      fetchAllFromSheets();
+    } else throw new Error(data.error||'Bad response');
   } catch(err) {
-    el.className='conn-status conn-err'; el.textContent='⬤  Connection Failed';
-    document.getElementById('evConnDot').style.background='#f87171';
-    showToast('Connection failed — check your URL and deployment settings', 'error');
+    el.className='conn-status cs-err'; el.innerHTML='⬤ &nbsp;Failed — check URL & deploy settings';
+    showToast('Connection failed — verify URL and "Anyone" access setting','error');
   }
 }
 
-function openSheetsDirect() {
-  if (!SHEETS_URL) { showToast('No Sheets URL saved yet', 'error'); return; }
-  window.open(SHEETS_URL.replace('/exec',''), '_blank');
+/* ═══════════════════ FETCH FROM SHEETS ═══════════════════ */
+async function fetchAllFromSheets() {
+  await Promise.all([fetchEvents(), fetchLeads()]);
 }
 
-/* ═══════════════════════════════════════════
-   GOOGLE SHEETS — LEAD SUBMIT (POST)
-═══════════════════════════════════════════ */
-async function postLeadToSheets(lead) {
-  if (!SHEETS_URL) return { success: false, offline: true };
-  try {
-    const res = await fetch(SHEETS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain' }, // Apps Script requires text/plain for no-cors compat
-      body: JSON.stringify(lead)
-    });
-    const data = await res.json();
-    return data;
-  } catch(err) {
-    // If CORS blocks JSON parse, the POST still went through — Apps Script receives it
-    // Return a soft success so UX isn't broken
-    return { success: true, cors_note: true };
-  }
-}
-
-/* ═══════════════════════════════════════════
-   GOOGLE SHEETS — FETCH LEADS (GET)
-═══════════════════════════════════════════ */
-async function fetchLeadsFromSheets() {
-  if (!isAdmin()) return;
+// ── FETCH EVENTS (public + admin) ─────────────────────────
+async function fetchEvents() {
+  const grid = document.getElementById('eventsGrid');
   if (!SHEETS_URL) {
-    setSyncBar('not-set', 'Google Sheets not connected — complete setup first');
-    document.getElementById('leadsTableBody').innerHTML = `<tr><td colspan="6"><div class="empty-leads"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Connect Google Sheets to see leads here. Complete the Setup tab first.</div></td></tr>`;
+    // No sheets URL at all — show placeholder events so page isn't empty
+    renderEventCards(getPlaceholderEvents());
     return;
   }
-  setSyncBar('loading', 'Fetching leads from Google Sheets…');
-  document.getElementById('leadsTableBody').innerHTML = `<tr><td colspan="6"><div class="load-spinner"><span></span>Loading leads from Google Sheets…</div></td></tr>`;
+  grid.innerHTML = '<div class="ev-loading"><span></span>Loading events…</div>';
   try {
-    const res  = await fetchWithCors(SHEETS_URL);
+    const res  = await fetch(SHEETS_URL + '?type=events');
+    const data = await res.json();
+    if (data.success && Array.isArray(data.events)) {
+      events = data.events;
+      renderEventCards(events);
+      renderEventsAdminList();
+      populateEventSelect();
+      document.getElementById('evTabCount').textContent = events.length;
+    } else throw new Error('Bad events response');
+  } catch(err) {
+    grid.innerHTML = '<div class="empty-ev"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>Could not load events. Check your Sheets connection.</p></div>';
+  }
+}
+
+// ── FETCH LEADS ────────────────────────────────────────────
+async function fetchLeads() {
+  if (!isAdmin() || !SHEETS_URL) {
+    setSyncBar('err','Google Sheets not connected — complete setup first');
+    return;
+  }
+  setSyncBar('','Fetching leads from Google Sheets…');
+  document.getElementById('leadsTableBody').innerHTML = '<tr><td colspan="6"><div class="load-spinner"><span></span>Loading leads…</div></td></tr>';
+  try {
+    const res  = await fetch(SHEETS_URL + '?type=leads');
     const data = await res.json();
     if (data.success && Array.isArray(data.leads)) {
-      leads = data.leads.filter(l => l.name || l.email); // filter blank rows
+      leads = data.leads;
       setSyncBar('ok', `Synced ${leads.length} leads · ${fmtDate(new Date().toISOString())}`);
       renderLeadsTable();
       renderLeadsStats();
       updateLeadsTabCount();
       populateLeadsFilters();
-    } else {
-      throw new Error(data.error || 'No leads array returned');
-    }
+    } else throw new Error(data.error||'Bad response');
   } catch(err) {
-    setSyncBar('err', 'Could not fetch from Sheets — check connection or CORS settings');
-    document.getElementById('leadsTableBody').innerHTML = `<tr><td colspan="6"><div class="empty-leads"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Could not load leads. Verify your Apps Script URL and that it is deployed with "Anyone" access.</div></td></tr>`;
+    setSyncBar('err','Could not fetch leads — check connection or CORS settings');
+    document.getElementById('leadsTableBody').innerHTML = '<tr><td colspan="6"><div class="empty-leads"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>Could not load leads. Verify your Apps Script URL.</div></td></tr>';
   }
 }
 
-function fetchWithCors(url) {
-  // Try direct fetch first; Apps Script with "Anyone" access works without CORS headers
-  return fetch(url, { method: 'GET' });
+/* ═══════════════════ EVENTS — RENDER ═══════════════════ */
+function getPlaceholderEvents() {
+  return [
+    {id:'p1',title:'Wealth Fundamentals',category:'Module 1',date:'4 – 6 Sept 2026',venue:'Sheraton PJ, Petaling Jaya',seats:'50',status:'filling',description:'Master budgeting, cash-flow management, debt reduction and early investment strategies for a stronger family future.',image:'https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1200&auto=format&fit=crop',video:'',link:'#register'},
+    {id:'p2',title:'Retirement Planning',category:'Module 6',date:'18 – 20 Sept 2026',venue:'Sheraton PJ, Petaling Jaya',seats:'40',status:'open',description:'Learn EPF planning, private pension options, estate preparation and retirement income structuring for a secure future.',image:'https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop',video:'',link:'#register'},
+    {id:'p3',title:'Financial Confidence Workshop',category:'Workshop',date:'Coming Soon',venue:'Kuala Lumpur',seats:'',status:'soon',description:'A practical workshop for professionals, families, young graduates and SME owners to improve financial decisions.',image:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop',video:'',link:'#register'}
+  ];
 }
 
-function setSyncBar(state, msg) {
-  const bar = document.getElementById('syncBar');
-  bar.className = 'sync-bar' + (state==='ok'?' ok':state==='err'?' err':'');
-  document.getElementById('syncMsg').textContent = msg;
+function statusBadge(s) {
+  const m={open:['Open','#4ade80'],filling:['Filling Fast','#facc15'],full:['Full','#f87171'],soon:['Coming Soon','#94a3b8']};
+  const [l,c]=m[s]||m.open;
+  return `<span style="width:5px;height:5px;border-radius:50%;background:${c};flex-shrink:0;"></span>${l}`;
 }
 
-/* ═══════════════════════════════════════════
-   LEAD FORM — SUBMIT
-═══════════════════════════════════════════ */
+function renderEventCards(evList) {
+  const grid = document.getElementById('eventsGrid');
+  if (!evList.length) {
+    grid.innerHTML='<div class="empty-ev"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><p>No events yet. Add your first event from the admin panel.</p></div>';
+    return;
+  }
+  const fallback = 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1200&auto=format&fit=crop';
+  grid.innerHTML = evList.map(ev => `
+    <article class="ev-card fade-up">
+      <div class="ev-media">
+        ${ev.video ? `<iframe src="${esc(ev.video)}" title="${esc(ev.title)}" allowfullscreen></iframe>`
+                   : `<img src="${esc(ev.image||fallback)}" alt="${esc(ev.title)}" loading="lazy"/>`}
+        <span class="ev-tag">${esc(ev.category||'Event')}</span>
+        <span class="ev-status">${statusBadge(ev.status||'open')}</span>
+      </div>
+      <div class="ev-body">
+        <h3>${esc(ev.title)}</h3>
+        <div class="ev-meta">
+          <div class="ev-meta-row"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>${esc(ev.date||'TBC')}</div>
+          <div class="ev-meta-row"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${esc(ev.venue||'TBC')}</div>
+          ${ev.seats?`<div class="ev-meta-row"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>${esc(ev.seats)} seats max</div>`:''}
+        </div>
+        <p class="ev-desc">${esc(ev.description||'')}</p>
+        <div class="ev-actions">
+          <a href="${esc(ev.link||'#register')}" target="${ev.link&&ev.link.startsWith('http')?'_blank':'_self'}" rel="noopener" class="btn-reg">
+            Register Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          ${isAdmin()?`
+            <button class="ic-btn ic-edit" onclick="editEventForm('${esc(ev.id)}')" title="Edit">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </button>
+            <button class="ic-btn ic-del" onclick="deleteEvent('${esc(ev.id)}','${esc(ev.title)}')" title="Delete">
+              <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m5 0V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2"/></svg>
+            </button>`:''}
+        </div>
+      </div>
+    </article>`).join('');
+
+  // update hero image
+  const first = evList.find(e => e.image);
+  if (first) document.getElementById('heroImage').src = first.image;
+  populateEventSelect();
+}
+
+function renderEventsAdminList() {
+  const el = document.getElementById('evAdminList');
+  if (!events.length) { el.innerHTML='<div class="ev-admin-empty">No events in Sheets yet. Add one using the form.</div>'; return; }
+  const tagMap = {open:'tag-open',filling:'tag-filling',full:'tag-full',soon:'tag-soon'};
+  el.innerHTML = events.map(ev=>`
+    <div class="ev-admin-row">
+      <img class="ev-thumb" src="${esc(ev.image||'')}" onerror="this.style.display='none'" alt=""/>
+      <div class="ev-admin-info">
+        <h4>${esc(ev.title)}</h4>
+        <p>${esc(ev.date||'TBC')} · ${esc(ev.venue||'—')}</p>
+      </div>
+      <span class="ev-admin-tag ${tagMap[ev.status]||'tag-open'}">${ev.status||'open'}</span>
+      <div class="ev-admin-acts">
+        <button class="ic-btn ic-edit" onclick="editEventForm('${esc(ev.id)}')" title="Edit"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+        <button class="ic-btn ic-del" onclick="deleteEvent('${esc(ev.id)}','${esc(ev.title)}')" title="Delete"><svg viewBox="0 0 24 24" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m5 0V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2"/></svg></button>
+      </div>
+    </div>`).join('');
+}
+
+function populateEventSelect() {
+  const sel = document.getElementById('lf_event');
+  const src = events.length ? events : getPlaceholderEvents();
+  sel.innerHTML = '<option value="">-- Select an event --</option>' +
+    src.map(ev=>`<option value="${esc(ev.title)}">${esc(ev.title)}${ev.date?' — '+esc(ev.date):''}</option>`).join('');
+}
+
+/* ═══════════════════ EVENTS — CRUD ═══════════════════ */
+function editEventForm(id) {
+  const ev = events.find(e=>e.id===id);
+  if (!ev) { showToast('Event not found','error'); return; }
+  document.getElementById('editId').value      = ev.id;
+  document.getElementById('a_title').value     = ev.title||'';
+  document.getElementById('a_category').value  = ev.category||'';
+  document.getElementById('a_date').value      = ev.date||'';
+  document.getElementById('a_venue').value     = ev.venue||'';
+  document.getElementById('a_seats').value     = ev.seats||'';
+  document.getElementById('a_status').value    = ev.status||'open';
+  document.getElementById('a_link').value      = ev.link||'';
+  document.getElementById('a_image').value     = ev.image||'';
+  document.getElementById('a_video').value     = ev.video||'';
+  document.getElementById('a_description').value = ev.description||'';
+  document.getElementById('adminFormTitle').childNodes[0].textContent = 'Edit Event ';
+  switchTab('events');
+  document.getElementById('adminSection').scrollIntoView({behavior:'smooth',block:'start'});
+  showToast('Event loaded into form — edit and save');
+}
+
+async function saveEvent() {
+  if (!isAdmin()) { openAdminLogin(); return; }
+  const title = document.getElementById('a_title').value.trim();
+  if (!title) { showToast('Event title is required','error'); return; }
+  if (!SHEETS_URL) { document.getElementById('noSheetsWarning').style.display='block'; return; }
+
+  const editId = document.getElementById('editId').value;
+  const isEdit = !!editId;
+  const evData = {
+    id:          isEdit ? editId : '',
+    title,
+    category:    document.getElementById('a_category').value.trim(),
+    date:        document.getElementById('a_date').value.trim(),
+    venue:       document.getElementById('a_venue').value.trim(),
+    seats:       document.getElementById('a_seats').value.trim(),
+    status:      document.getElementById('a_status').value,
+    link:        document.getElementById('a_link').value.trim(),
+    image:       document.getElementById('a_image').value.trim(),
+    video:       document.getElementById('a_video').value.trim(),
+    description: document.getElementById('a_description').value.trim()
+  };
+
+  // Show saving state
+  const btn = document.getElementById('saveEvBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
+  document.getElementById('savingIndicator').style.display = 'flex';
+
+  try {
+    const res  = await fetch(SHEETS_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'text/plain'},
+      body: JSON.stringify({action: isEdit ? 'editEvent' : 'addEvent', data: evData})
+    });
+    const data = await res.json();
+    if (data.success) {
+      showToast(isEdit ? 'Event updated in Sheets ✓' : 'Event added to Sheets ✓', 'success');
+      resetEvForm();
+      await fetchEvents();  // refresh public + admin list
+    } else throw new Error(data.error||'Failed');
+  } catch(err) {
+    showToast('Could not save event: ' + err.message, 'error');
+  }
+  btn.disabled = false; btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save to Sheets';
+  document.getElementById('savingIndicator').style.display = 'none';
+}
+
+async function deleteEvent(id, title) {
+  if (!isAdmin()) { openAdminLogin(); return; }
+  if (!SHEETS_URL) { showToast('Sheets not connected','error'); return; }
+  if (!confirm(`Delete "${title}"? This will remove it from Google Sheets permanently.`)) return;
+  try {
+    const res  = await fetch(SHEETS_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'text/plain'},
+      body: JSON.stringify({action:'deleteEvent', id})
+    });
+    const data = await res.json();
+    if (data.success) {
+      showToast('Event deleted from Sheets','error');
+      await fetchEvents();
+    } else throw new Error(data.error||'Failed');
+  } catch(err) {
+    showToast('Could not delete: ' + err.message, 'error');
+  }
+}
+
+function resetEvForm() {
+  ['a_title','a_category','a_date','a_venue','a_seats','a_link','a_image','a_video','a_description'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('a_status').value='open';
+  document.getElementById('editId').value='';
+  document.getElementById('adminFormTitle').childNodes[0].textContent = 'Add New Event ';
+  document.getElementById('noSheetsWarning').style.display='none';
+}
+
+/* ═══════════════════ LEAD FORM ═══════════════════ */
 async function submitLead() {
   const first = document.getElementById('lf_first').value.trim();
   const last  = document.getElementById('lf_last').value.trim();
   const email = document.getElementById('lf_email').value.trim();
   const phone = document.getElementById('lf_phone').value.trim();
-
-  let valid = true;
-  ['lf_first','lf_last','lf_email','lf_phone'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el.value.trim()) { el.classList.add('err'); valid=false; } else { el.classList.remove('err'); }
+  let valid=true;
+  ['lf_first','lf_last','lf_email','lf_phone'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el.value.trim()){el.classList.add('err');valid=false;}else el.classList.remove('err');
   });
-  if (!valid) { showToast('Please fill all required fields', 'error'); return; }
-  if (!email.includes('@')) { document.getElementById('lf_email').classList.add('err'); showToast('Please enter a valid email', 'error'); return; }
+  if(!valid){showToast('Please fill all required fields','error');return;}
+  if(!email.includes('@')){document.getElementById('lf_email').classList.add('err');showToast('Please enter a valid email','error');return;}
 
-  const btn = document.getElementById('leadSubmitBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Submitting…';
+  const btn=document.getElementById('leadSubmitBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner-sm"></span> Submitting…';
 
-  const lead = {
-    id:         Date.now().toString(),
-    name:       `${first} ${last}`,
-    email,
-    phone,
-    event:      document.getElementById('lf_event').value,
-    occupation: document.getElementById('lf_occupation').value.trim(),
-    source:     document.getElementById('lf_source').value,
-    status:     'new',
-    notes:      '',
-    timestamp:  new Date().toISOString()
+  const lead={
+    name:`${first} ${last}`, email, phone,
+    event:document.getElementById('lf_event').value,
+    occupation:document.getElementById('lf_occupation').value.trim(),
+    source:document.getElementById('lf_source').value,
+    status:'new', notes:''
   };
 
-  const result = await postLeadToSheets(lead);
+  try {
+    if (SHEETS_URL) {
+      await fetch(SHEETS_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'addLead',data:lead})});
+    }
+  } catch(e) { /* silent — POST likely still went through */ }
 
-  if (result.offline) {
-    // No Sheets URL set — show warning but still succeed for UX
-    document.getElementById('sheetsWarning').style.display = 'block';
-  }
-
-  // Show success regardless (UX-first: admin can see the lead in Sheet directly)
-  document.getElementById('leadFormInner').style.display = 'none';
-  document.getElementById('leadSuccess').style.display   = 'block';
-  showToast(`Thank you, ${first}! Registration received.`, 'success');
+  document.getElementById('leadFormInner').style.display='none';
+  document.getElementById('leadSuccess').style.display='block';
+  showToast(`Thank you, ${first}! Registration received.`,'success');
 }
 
 function resetLeadForm() {
-  ['lf_first','lf_last','lf_email','lf_phone','lf_occupation'].forEach(id => document.getElementById(id).value='');
-  document.getElementById('lf_event').value = '';
-  document.getElementById('lf_source').value = '';
-  document.getElementById('leadFormInner').style.display = 'block';
-  document.getElementById('leadSuccess').style.display   = 'none';
-  document.getElementById('sheetsWarning').style.display = 'none';
-  const btn = document.getElementById('leadSubmitBtn');
-  btn.disabled = false;
-  btn.innerHTML = 'Submit Registration <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  ['lf_first','lf_last','lf_email','lf_phone','lf_occupation'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('lf_event').value='';
+  document.getElementById('lf_source').value='';
+  document.getElementById('leadFormInner').style.display='block';
+  document.getElementById('leadSuccess').style.display='none';
+  const btn=document.getElementById('leadSubmitBtn');
+  btn.disabled=false;
+  btn.innerHTML='Submit Registration <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 }
 
-/* ═══════════════════════════════════════════
-   LEADS TABLE
-═══════════════════════════════════════════ */
+/* ═══════════════════ LEADS TABLE ═══════════════════ */
 function getFiltered() {
-  const q   = (document.getElementById('leadsSearch')?.value||'').toLowerCase();
-  const evF = document.getElementById('leadsEventFilter')?.value||'';
-  const stF = document.getElementById('leadsStatusFilter')?.value||'';
-  return leads.filter(l => {
-    const name  = (l.name||'').toLowerCase();
-    const email = (l.email||'').toLowerCase();
-    const phone = (l.phone||'');
-    return (!q || name.includes(q)||email.includes(q)||phone.includes(q))
-        && (!evF || l.event===evF)
-        && (!stF || l.status===stF);
-  });
+  const q=(document.getElementById('leadsSearch')?.value||'').toLowerCase();
+  const evF=document.getElementById('leadsEventFilter')?.value||'';
+  const stF=document.getElementById('leadsStatusFilter')?.value||'';
+  return leads.filter(l=>
+    (!q||(l.name||'').toLowerCase().includes(q)||(l.email||'').toLowerCase().includes(q)||(l.phone||'').includes(q))
+    &&(!evF||l.event===evF)&&(!stF||l.status===stF));
 }
 
 function renderLeadsTable() {
-  if (!isAdmin()) return;
-  const filtered = getFiltered();
-  const total    = filtered.length;
-  const pages    = Math.max(1, Math.ceil(total/PER_PAGE));
-  if (leadsPage > pages) leadsPage = 1;
-  const slice = filtered.slice((leadsPage-1)*PER_PAGE, leadsPage*PER_PAGE);
-
-  const tbody = document.getElementById('leadsTableBody');
-  if (!slice.length) {
-    tbody.innerHTML = `<tr><td colspan="6"><div class="empty-leads"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>${leads.length ? 'No leads match your filters.' : 'No leads yet.'}</div></td></tr>`;
+  if(!isAdmin())return;
+  const filtered=getFiltered(),total=filtered.length;
+  const pages=Math.max(1,Math.ceil(total/PER_PAGE));
+  if(leadsPage>pages)leadsPage=1;
+  const slice=filtered.slice((leadsPage-1)*PER_PAGE,leadsPage*PER_PAGE);
+  const tbody=document.getElementById('leadsTableBody');
+  if(!slice.length){
+    tbody.innerHTML=`<tr><td colspan="6"><div class="empty-leads"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>${leads.length?'No leads match your filters.':'No leads yet.'}</div></td></tr>`;
   } else {
-    tbody.innerHTML = slice.map(l => {
-      const ini = (l.name||'?').split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
-      const spClass = {new:'sp-new',contacted:'sp-contacted',converted:'sp-converted',cold:'sp-cold'}[l.status]||'sp-new';
+    tbody.innerHTML=slice.map(l=>{
+      const ini=(l.name||'?').split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
+      const spClass={new:'sp-new',contacted:'sp-contacted',converted:'sp-converted',cold:'sp-cold'}[l.status]||'sp-new';
+      const spLabel=(l.status||'new').charAt(0).toUpperCase()+(l.status||'new').slice(1);
       return `<tr>
         <td><div class="lead-name-cell"><div class="lead-ava">${ini}</div><div class="lead-name-info"><p>${esc(l.name||'—')}</p><p>${esc(l.occupation||'—')}</p></div></div></td>
         <td><p style="color:#fff;font-size:.8rem;">${esc(l.email||'—')}</p><p style="font-size:.73rem;color:rgba(255,255,255,.38);">${esc(l.phone||'—')}</p></td>
         <td style="font-size:.78rem;max-width:160px;">${esc(l.event||'—')}</td>
         <td style="font-size:.75rem;color:rgba(255,255,255,.48);">${esc(l.source||'—')}</td>
-        <td><span class="sp ${spClass}">${(l.status||'new').charAt(0).toUpperCase()+(l.status||'new').slice(1)}</span></td>
-        <td style="font-size:.73rem;color:rgba(255,255,255,.38);white-space:nowrap;">${fmtDate(l.timestamp)}</td>
+        <td><span class="sp ${spClass}">${spLabel}</span></td>
+        <td style="font-size:.73rem;color:rgba(255,255,255,.38);white-space:nowrap;">${esc(l.timestamp||'—')}</td>
       </tr>`;
     }).join('');
   }
-
-  document.getElementById('pgInfo').textContent = total
-    ? `Showing ${(leadsPage-1)*PER_PAGE+1}–${Math.min(leadsPage*PER_PAGE,total)} of ${total} leads`
-    : 'No leads';
-  const pgBtns = document.getElementById('pgBtns');
-  pgBtns.innerHTML = '';
-  for (let i=1; i<=pages; i++) {
-    const b = document.createElement('button');
-    b.className = 'pg-btn'+(i===leadsPage?' active':'');
-    b.textContent = i;
-    b.onclick = () => { leadsPage=i; renderLeadsTable(); };
-    pgBtns.appendChild(b);
-  }
+  document.getElementById('pgInfo').textContent=total?`Showing ${(leadsPage-1)*PER_PAGE+1}–${Math.min(leadsPage*PER_PAGE,total)} of ${total} leads`:'No leads';
+  const pgBtns=document.getElementById('pgBtns');pgBtns.innerHTML='';
+  for(let i=1;i<=pages;i++){const b=document.createElement('button');b.className='pg-btn'+(i===leadsPage?' active':'');b.textContent=i;b.onclick=()=>{leadsPage=i;renderLeadsTable();};pgBtns.appendChild(b);}
 }
 
 function renderLeadsStats() {
-  if (!isAdmin()) return;
-  document.getElementById('ls-total').textContent     = leads.length;
-  document.getElementById('ls-new').textContent       = leads.filter(l=>l.status==='new').length;
-  document.getElementById('ls-contacted').textContent = leads.filter(l=>l.status==='contacted').length;
-  document.getElementById('ls-converted').textContent = leads.filter(l=>l.status==='converted').length;
+  if(!isAdmin())return;
+  document.getElementById('ls-total').textContent=leads.length;
+  document.getElementById('ls-new').textContent=leads.filter(l=>l.status==='new').length;
+  document.getElementById('ls-contacted').textContent=leads.filter(l=>l.status==='contacted').length;
+  document.getElementById('ls-converted').textContent=leads.filter(l=>l.status==='converted').length;
 }
 
-function updateLeadsTabCount() {
-  document.getElementById('leadsTabCount').textContent = leads.length;
-}
+function updateLeadsTabCount(){document.getElementById('leadsTabCount').textContent=leads.length;}
 
 function populateLeadsFilters() {
-  const ef  = document.getElementById('leadsEventFilter');
-  const cur = ef.value;
-  const evNames = [...new Set(leads.map(l=>l.event).filter(Boolean))];
-  ef.innerHTML = '<option value="">All Events</option>' + evNames.map(e=>`<option value="${e}"${cur===e?' selected':''}>${e}</option>`).join('');
+  const ef=document.getElementById('leadsEventFilter'),cur=ef.value;
+  const evNames=[...new Set(leads.map(l=>l.event).filter(Boolean))];
+  ef.innerHTML='<option value="">All Events</option>'+evNames.map(e=>`<option value="${e}"${cur===e?' selected':''}>${e}</option>`).join('');
+}
+
+function setSyncBar(state,msg){
+  const bar=document.getElementById('syncBar');
+  bar.className='sync-bar'+(state==='ok'?' ok':state==='err'?' err':'');
+  document.getElementById('syncMsg').textContent=msg;
 }
 
 function exportLeadsCSV() {
-  if (!isAdmin()) { openAdminLogin(); return; }
-  const src = getFiltered();
-  if (!src.length) { showToast('No leads to export', 'error'); return; }
-  const headers = ['Name','Email','Phone','Event','Occupation','Source','Status','Registered'];
-  const rows = src.map(l=>[l.name,l.email,l.phone,l.event,l.occupation,l.source,l.status,fmtDate(l.timestamp)].map(v=>`"${(v||'').replace(/"/g,'""')}"`).join(','));
-  const csv = [headers.join(','),...rows].join('\n');
-  const a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
-  a.download = `vetrimadani_leads_${new Date().toISOString().slice(0,10)}.csv`;
+  if(!isAdmin()){openAdminLogin();return;}
+  const src=getFiltered();
+  if(!src.length){showToast('No leads to export','error');return;}
+  const headers=['Name','Email','Phone','Event','Occupation','Source','Status','Registered'];
+  const rows=src.map(l=>[l.name,l.email,l.phone,l.event,l.occupation,l.source,l.status,l.timestamp].map(v=>`"${(v||'').replace(/"/g,'""')}"`).join(','));
+  const csv=[headers.join(','),...rows].join('\n');
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download=`vetrimadani_leads_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
-  showToast(`Exported ${src.length} leads`, 'success');
+  showToast(`Exported ${src.length} leads`,'success');
 }
 
-/* ═══════════════════════════════════════════
-   EVENTS
-═══════════════════════════════════════════ */
-function saveEventsLocal() { localStorage.setItem(EVENTS_KEY, JSON.stringify(events)); }
-
-function statusBadge(s) {
-  const m = {open:['Open','#4ade80'],filling:['Filling Fast','#facc15'],full:['Full','#f87171'],soon:['Coming Soon','#94a3b8']};
-  const [l,c] = m[s]||m.open;
-  return `<span style="width:5px;height:5px;border-radius:50%;background:${c};flex-shrink:0;"></span>${l}`;
-}
-
-function renderEvents() {
-  const grid = document.getElementById('eventsGrid');
-  if (!events.length) { grid.innerHTML='<div class="empty-ev"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><p>No events yet.</p></div>'; return; }
-  grid.innerHTML = events.map((ev,i)=>`
-    <article class="ev-card fade-up">
-      <div class="ev-media">
-        ${ev.video?`<iframe src="${ev.video}" title="${ev.title}" allowfullscreen></iframe>`:`<img src="${ev.image||defaultEvents[0].image}" alt="${ev.title}" loading="lazy"/>`}
-        <span class="ev-tag">${ev.category||'Event'}</span>
-        <span class="ev-status">${statusBadge(ev.status)}</span>
-      </div>
-      <div class="ev-body">
-        <h3>${ev.title}</h3>
-        <div class="ev-meta">
-          <div class="ev-meta-row"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>${ev.date}</div>
-          <div class="ev-meta-row"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.venue}</div>
-          ${ev.seats?`<div class="ev-meta-row"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>${ev.seats} seats max</div>`:''}
-        </div>
-        <p class="ev-desc">${ev.description||''}</p>
-        <div class="ev-actions">
-          <a href="${ev.link}" target="_blank" rel="noopener" class="btn-reg">Register Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          ${isAdmin()?`<button class="ic-btn ic-edit" onclick="editEvent(${i})"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="ic-btn ic-del" onclick="deleteEvent(${i})"><svg viewBox="0 0 24 24" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m5 0V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2"/></svg></button>`:''}
-        </div>
-      </div>
-    </article>`).join('');
-  if (events[0]) document.getElementById('heroImage').src = events[0].image||defaultEvents[0].image;
-  const sel = document.getElementById('lf_event');
-  sel.innerHTML = '<option value="">-- Select an event --</option>' + events.map(ev=>`<option value="${ev.title}">${ev.title} — ${ev.date}</option>`).join('');
-}
-
-function editEvent(i) {
-  if(!isAdmin()){openAdminLogin();return;}
-  const ev=events[i];
-  document.getElementById('editIndex').value=i;
-  document.getElementById('a_title').value=ev.title||'';
-  document.getElementById('a_category').value=ev.category||'';
-  document.getElementById('a_date').value=ev.date||'';
-  document.getElementById('a_venue').value=ev.venue||'';
-  document.getElementById('a_seats').value=ev.seats||'';
-  document.getElementById('a_status').value=ev.status||'open';
-  document.getElementById('a_link').value=ev.link||'';
-  document.getElementById('a_image').value=ev.image||'';
-  document.getElementById('a_video').value=ev.video||'';
-  document.getElementById('a_description').value=ev.description||'';
-  document.getElementById('adminFormTitle').textContent='Edit Event';
-  switchTab('events');
-  document.getElementById('adminSection').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function deleteEvent(i) {
-  if(!isAdmin()){openAdminLogin();return;}
-  if(!confirm(`Delete "${events[i].title}"?`))return;
-  events.splice(i,1);saveEventsLocal();renderEvents();showToast('Event deleted','error');
-}
-
-function saveEvent() {
-  if(!isAdmin()){openAdminLogin();return;}
-  const title=document.getElementById('a_title').value.trim();
-  if(!title){showToast('Event title is required','error');return;}
-  const ev={id:Date.now(),title,category:document.getElementById('a_category').value.trim(),date:document.getElementById('a_date').value.trim(),venue:document.getElementById('a_venue').value.trim(),seats:document.getElementById('a_seats').value?parseInt(document.getElementById('a_seats').value):null,status:document.getElementById('a_status').value,link:document.getElementById('a_link').value.trim(),image:document.getElementById('a_image').value.trim(),video:document.getElementById('a_video').value.trim(),description:document.getElementById('a_description').value.trim()};
-  const idx=document.getElementById('editIndex').value;
-  if(idx!=='')events[Number(idx)]={...events[Number(idx)],...ev};else events.unshift(ev);
-  saveEventsLocal();resetAdminForm();renderEvents();showToast('Event saved','success');
-}
-
-function resetAdminForm() {
-  ['a_title','a_category','a_date','a_venue','a_seats','a_link','a_image','a_video','a_description'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('a_status').value='open';
-  document.getElementById('editIndex').value='';
-  document.getElementById('adminFormTitle').textContent='Add New Event';
-}
-
-function resetDemoData() {
-  if(!isAdmin()){openAdminLogin();return;}
-  if(!confirm('Reset events to demo data?'))return;
-  events=[...defaultEvents];saveEventsLocal();resetAdminForm();renderEvents();showToast('Events reset to demo');
-}
-
-document.getElementById('mediaUpload').addEventListener('change',function(e){
-  const file=e.target.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=()=>{
-    if(file.type.startsWith('image/'))document.getElementById('a_image').value=r.result;
-    if(file.type.startsWith('video/'))document.getElementById('a_video').value=r.result;
-    showToast('File loaded — save event to apply');
-  };
-  r.readAsDataURL(file);
-});
-
-/* ═══════════════════════════════════════════
-   TABS
-═══════════════════════════════════════════ */
+/* ═══════════════════ TABS ═══════════════════ */
 function switchTab(tab) {
-  const tabs = ['setup','events','leads'];
+  const tabs=['setup','events','leads'];
   document.querySelectorAll('.adm-tab').forEach((el,i)=>el.classList.toggle('active',tabs[i]===tab));
-  tabs.forEach(t=>{
-    document.getElementById('tab-'+t).classList.toggle('active',t===tab);
-  });
-  if (tab==='leads') { fetchLeadsFromSheets(); }
+  tabs.forEach(t=>document.getElementById('tab-'+t).classList.toggle('active',t===tab));
+  if(tab==='leads')fetchLeads();
+  if(tab==='events'){renderEventsAdminList();}
 }
 
-/* ═══════════════════════════════════════════
-   HELPERS
-═══════════════════════════════════════════ */
-function fmtDate(iso) {
-  if(!iso)return'—';
-  try{ return new Date(iso).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}); }catch{return iso;}
-}
-function esc(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+/* ═══════════════════ HELPERS ═══════════════════ */
+function fmtDate(iso){try{return new Date(iso).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});}catch{return iso;}}
+function esc(s){if(s===null||s===undefined)return'';const d=document.createElement('div');d.textContent=String(s);return d.innerHTML;}
 function copyText(t){navigator.clipboard.writeText(t).then(()=>showToast('Copied!','success'));}
 function copyScriptCode(){copyText(document.getElementById('appsScriptCode').textContent);}
 
 let toastTimer;
 function showToast(msg,type=''){
   const t=document.getElementById('toast');
-  t.textContent=msg; t.className=`toast${type?' t-'+type:''}`;
+  t.textContent=msg;t.className=`toast${type?' t-'+type:''}`;
   requestAnimationFrame(()=>t.classList.add('show'));
   clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>t.classList.remove('show'),3800);
