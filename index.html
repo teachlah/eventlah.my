@@ -516,15 +516,27 @@
       <div style="max-width:820px;">
         <div class="setup-card">
           <h4><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Google Sheets Connection</h4>
-          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem;">
+
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;">
             <span class="conn-status cs-none" id="connStatus">⬤ &nbsp;Not Connected</span>
             <button onclick="testConnection()" class="btn btn-ghost btn-sm">Test Connection</button>
           </div>
+
+          <div style="background:rgba(200,146,42,.07);border:1px solid rgba(200,146,42,.18);border-radius:10px;padding:.95rem 1.1rem;margin-bottom:1rem;font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.75;">
+            <strong style="color:var(--gold-light);">⚡ Why every new device needed reconnecting before:</strong><br>
+            The URL was saved in <code>localStorage</code> — which is per-browser, per-device. A new phone = empty localStorage = no Sheets connection = public visitors can't see events or submit leads.<br><br>
+            <strong style="color:var(--gold-light);">✅ The permanent fix (already built into this file):</strong><br>
+            Open this HTML file in any code editor, find this line near the top of the <code>&lt;script&gt;</code> tag:<br>
+            <code style="display:block;margin:.5rem 0;padding:.4rem .7rem;background:rgba(0,0,0,.3);border-radius:6px;">const HARDCODED_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyaO7t2GnOY8qTRW3tpqnCNwqUGl44lLWNHTGXWN1LhVaXMBeGW2xL57N3YcWTJoTyk/exec';</code>
+            Paste your Apps Script URL between the single quotes, save the file, commit and push to GitHub.<br>
+            <strong style="color:#fff;">That's it.</strong> Every visitor — on any device, anywhere in the world — will automatically connect. No admin setup required.
+          </div>
+
+          <p style="font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:.4rem;">Or paste here to test in this browser right now (temporary — won't affect other devices):</p>
           <div class="url-row">
             <input type="url" id="sheetsWebAppUrl" placeholder="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"/>
-            <button onclick="saveScriptUrl()" class="btn btn-gold btn-sm">Save & Connect</button>
+            <button onclick="saveScriptUrl()" class="btn btn-gold btn-sm">Test in This Browser</button>
           </div>
-          <p style="font-size:.73rem;color:rgba(255,255,255,.35);margin-top:.5rem;">Paste your Google Apps Script Web App URL here after completing Step 3 below.</p>
         </div>
 
         <div class="setup-card">
@@ -661,7 +673,10 @@ function jsonOut(obj) {
             <div class="step-body">
               <p><strong>Deploy as Web App.</strong> Click <strong>Deploy → New deployment</strong>:</p>
               <p>• Type: <code>Web app</code> &nbsp;• Execute as: <code>Me</code> &nbsp;• Access: <code>Anyone</code></p>
-              <p style="margin-top:.4rem;">Click <strong>Deploy</strong>, authorise when asked, then copy the <strong>Web App URL</strong> and paste it in the Connection box above. Click <strong>Save & Connect</strong>.</p>
+              <p style="margin-top:.4rem;">Click <strong>Deploy</strong>, authorise when asked, then copy the <strong>Web App URL</strong>.</p>
+              <p style="margin-top:.7rem;color:rgba(255,255,255,.85);font-weight:600;">Then — open this HTML file in your editor and find:</p>
+              <div style="background:rgba(0,0,0,.3);border-radius:7px;padding:.5rem .8rem;font-family:monospace;font-size:.76rem;color:var(--gold-light);margin:.4rem 0;">const HARDCODED_SHEETS_URL = '';</div>
+              <p>Paste your Web App URL between the quotes, save, commit &amp; push to GitHub. The page will now connect on <strong>every device automatically</strong> — no admin setup needed on any phone, tablet, or computer.</p>
               <p style="margin-top:.6rem;color:rgba(255,255,255,.38);font-size:.76rem;">⚠ Every time you edit the Apps Script code you must create a <strong>New deployment</strong> — redeploying to an existing one does not update the live script.</p>
             </div>
           </div>
@@ -790,13 +805,22 @@ function jsonOut(obj) {
 <div class="toast" id="toast"></div>
 
 <script>
-/* ═══════════════════ CONFIG ═══════════════════ */
+/* ═══════════════════ CONFIG ═══════════════════
+   ↓↓↓  PASTE YOUR APPS SCRIPT URL HERE ONCE  ↓↓↓
+   After pasting, commit & push to GitHub.
+   Every device — public visitors, admin on phone,
+   admin on laptop — will all use this same URL.
+   No per-device setup needed.
+═══════════════════════════════════════════════ */
+const HARDCODED_SHEETS_URL = '';  // ← PASTE YOUR URL INSIDE THESE QUOTES
+
 const ADMIN_USER = 'admin';
 const ADMIN_PASS = 'vetri2025';
 const AUTH_KEY   = 'vm_admin_auth';
 const SCRIPT_KEY = 'vm_sheets_url_v4';
 
-let SHEETS_URL = localStorage.getItem(SCRIPT_KEY) || '';
+// Use hardcoded URL first; fall back to whatever admin saved locally
+let SHEETS_URL = HARDCODED_SHEETS_URL || localStorage.getItem(SCRIPT_KEY) || '';
 let events     = [];   // loaded from Sheets
 let leads      = [];   // loaded from Sheets
 let leadsPage  = 1;
@@ -807,7 +831,7 @@ async function init() {
   document.getElementById('year').textContent = new Date().getFullYear();
   if (SHEETS_URL) document.getElementById('sheetsWebAppUrl').value = SHEETS_URL;
   updateConnStatusUI();
-  await fetchEvents();         // load events for public page on load
+  await fetchEvents();  // runs for ALL visitors on every page load
   applyAdminUI();
 }
 
@@ -858,8 +882,15 @@ function saveScriptUrl() {
 
 function updateConnStatusUI() {
   const el = document.getElementById('connStatus');
-  if (!SHEETS_URL) { el.className='conn-status cs-none'; el.innerHTML='⬤ &nbsp;Not Connected'; }
-  else { el.className='conn-status cs-test'; el.innerHTML='⬤ &nbsp;URL Saved'; }
+  const urlInput = document.getElementById('sheetsWebAppUrl');
+  if (!SHEETS_URL) {
+    el.className='conn-status cs-none'; el.innerHTML='⬤ &nbsp;Not Connected';
+  } else if (HARDCODED_SHEETS_URL) {
+    el.className='conn-status cs-ok'; el.innerHTML='⬤ &nbsp;Hardcoded — All devices connected ✓';
+    if (urlInput) urlInput.disabled = true; // lock the field when hardcoded
+  } else {
+    el.className='conn-status cs-test'; el.innerHTML='⬤ &nbsp;Saved in this browser only';
+  }
 }
 
 async function testConnection() {
