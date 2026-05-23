@@ -53,7 +53,7 @@
     .pace-logo-ft-img{height:44px;max-width:200px;object-fit:contain;object-position:left center;border-radius:6px;background:#fff;padding:3px 6px;opacity:.92;}
 
     /* HERO */
-    #hero{min-height:100vh;padding-top:72px;background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;}
+    #hero{min-height:100vh;padding-top:72px;/* overridden at 640px */background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;}
     .hero-bg::before{content:'';position:absolute;top:-20%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,146,42,.22) 0%,transparent 70%);pointer-events:none;}
     .hero-bg::after{content:'';position:absolute;bottom:-30%;left:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(13,122,85,.18) 0%,transparent 70%);pointer-events:none;}
     .hero-grid{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
@@ -330,22 +330,141 @@
     .ev-cd-lbl{font-size:.48rem;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;margin-top:.1rem;}
     .ev-cd-sep{font-size:.7rem;color:rgba(255,255,255,.35);font-weight:700;line-height:1;margin-top:-2px;}
     .ev-cd-expired{font-size:.72rem;color:#f87171;font-weight:700;}
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — TABLET  (≤1024px)
+    ═══════════════════════════════════════════ */
     @media(max-width:1024px){
-      .hero-inner,.reg-inner,.mod-inner{grid-template-columns:1fr;gap:2.5rem;}
+      /* Layout grids → single column */
+      .hero-inner,.reg-inner,.mod-inner{grid-template-columns:1fr;gap:2rem;}
       .hero-float{display:none;}
-      .ft-top{grid-template-columns:1fr 1fr;}
-      .feat-inner{grid-template-columns:repeat(2,1fr);}
+      .hero-stats{max-width:100%;}
+      /* Features 2-col on tablet */
+      .feat-inner{grid-template-columns:repeat(2,1fr);gap:1rem;}
+      /* Footer 2-col */
+      .ft-top{grid-template-columns:1fr 1fr;gap:2rem;}
+      /* Admin leads stats 2-col */
       .leads-stats{grid-template-columns:repeat(2,1fr);}
+      /* Admin events layout → single col */
+      #evAdmLayout{grid-template-columns:1fr!important;}
+      /* Content editor grid → single col on tablet */
+      .ce-grid{grid-template-columns:1fr;}
     }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — MOBILE  (≤640px)
+    ═══════════════════════════════════════════ */
     @media(max-width:640px){
-      .hdr{padding:0 1rem;} nav{display:none;}
+      /* ── HEADER ── */
+      .hdr{padding:0 1rem;height:60px;}
+      nav{display:none;}
+      .logo-text p{display:none;}
+      /* Shrink header CTAs */
+      .hdr-actions .btn{padding:.5rem .9rem;font-size:.78rem;}
+      .pace-logo-img{height:40px;}
+
+      /* ── HERO ── */
+      #hero{padding-top:60px;}
+      .hero-inner{padding:2.5rem 1rem 3rem;gap:1.5rem;}
+      h1.hero-title{font-size:clamp(2rem,8vw,2.8rem);}
+      .hero-sub{font-size:.92rem;}
+      .hero-ctas{gap:.6rem;}
+      .hero-ctas .btn{width:100%;justify-content:center;padding:.78rem 1rem;}
+      .hero-stats{grid-template-columns:repeat(3,1fr);gap:.5rem;}
+      .stat-card{padding:.8rem .6rem;}
+      .stat-num{font-size:1.2rem;}
+      .stat-label{font-size:.65rem;}
+      .hero-img-wrap img{height:240px;}
+      .hero-badge{font-size:.7rem;}
+
+      /* ── FEATURES ── */
+      #features{padding:2rem 0;}
+      .feat-inner{grid-template-columns:1fr;gap:.75rem;padding:0 1rem;}
+      .feat-pill{padding:1rem;}
+
+      /* ── EVENTS ── */
+      #events{padding:3rem 0;}
+      .ev-inner{padding:0 1rem;}
+      .ev-hdr{flex-direction:column;align-items:flex-start;gap:1rem;margin-bottom:1.8rem;}
+      .ev-hdr .btn{width:100%;justify-content:center;}
+      #eventsGrid{grid-template-columns:1fr;gap:1.2rem;}
+      .ev-card{border-radius:16px;}
+      .ev-media{height:180px;}
+      .ev-body{padding:1.1rem;}
+      .ev-body h3{font-size:1.05rem;}
+      .ev-actions{flex-wrap:wrap;}
+      .btn-reg{min-width:0;font-size:.8rem;padding:.65rem .85rem;}
+
+      /* ── REGISTER / LEAD FORM ── */
+      #register{padding:3rem 0;}
+      .reg-inner{padding:0 1rem;gap:2rem;}
+      .lead-box{padding:1.4rem 1.1rem;border-radius:16px;}
+      .lead-box h3{font-size:1.25rem;}
       .form-row,.adm-row{grid-template-columns:1fr;}
-      #eventsGrid{grid-template-columns:1fr;}
-      .feat-inner{grid-template-columns:1fr;}
-      .ft-top{grid-template-columns:1fr;}
-      .ev-hdr,.adm-hdr{flex-direction:column;align-items:flex-start;}
-      .leads-stats{grid-template-columns:1fr 1fr;}
-      .adm-tabs{overflow-x:auto;}
+      .fg input,.fg select{font-size:.88rem;}
+      .trust-list{gap:.6rem;}
+
+      /* ── MODULES ── */
+      #modules{padding:3rem 0;}
+      .mod-inner{padding:0 1rem;gap:1.8rem;}
+      .mod-card{padding:1rem 1.1rem;}
+      .testi-box{padding:1.3rem;}
+      .testi-box blockquote{font-size:.98rem;}
+
+      /* ── ADMIN PANEL ── */
+      #adminSection{padding:3rem 0;}
+      .adm-inner{padding:0 1rem;}
+      .adm-title{font-size:1.45rem;}
+      .adm-hdr{flex-direction:column;align-items:flex-start;gap:1rem;}
+      .adm-actions{flex-wrap:wrap;gap:.5rem;}
+      .adm-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.3rem;gap:.25rem;}
+      .adm-tab{white-space:nowrap;padding:.55rem .9rem;font-size:.78rem;}
+      .adm-card{padding:1.2rem 1rem;}
+      .adm-row{grid-template-columns:1fr;}
+      #evAdmLayout{grid-template-columns:1fr!important;gap:1.2rem;}
+      .leads-stats{grid-template-columns:1fr 1fr;gap:.6rem;}
+      .lstat{padding:.75rem .8rem;}
+      .lstat-num{font-size:1.25rem;}
+      .leads-toolbar{flex-direction:column;gap:.6rem;}
+      .leads-search,.leads-filter{width:100%;}
+      .leads-table th,.leads-table td{padding:.65rem .75rem;font-size:.75rem;}
+      .lead-name-cell{gap:.5rem;}
+      .pg-btn{padding:.3rem .6rem;font-size:.72rem;}
+      .setup-card{padding:1.1rem;}
+      .url-row{flex-direction:column;}
+      .url-row input,.url-row .btn{width:100%;}
+
+      /* ── CONTENT / REVIEWS / FOOTER EDITOR TABS ── */
+      .ce-grid{grid-template-columns:1fr;}
+      .rv-meta{grid-template-columns:1fr;}
+      .ce-save-row{flex-wrap:wrap;}
+      .ft-link-row{flex-wrap:wrap;}
+      .ft-link-row input{min-width:0;}
+
+      /* ── FOOTER ── */
+      footer{padding:2.5rem 0 1.5rem;}
+      .ft-inner{padding:0 1rem;}
+      .ft-top{grid-template-columns:1fr;gap:1.5rem;padding-bottom:1.8rem;}
+      .ft-brand p{max-width:100%;}
+      .ft-bottom{flex-direction:column;gap:.5rem;text-align:center;margin-top:1.2rem;}
+
+      /* ── MODAL ── */
+      .modal-overlay{padding:1rem;}
+      .modal-box{padding:1.6rem 1.2rem;}
+
+      /* ── TOAST ── */
+      .toast{bottom:1rem;right:1rem;left:1rem;max-width:none;}
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — SMALL MOBILE  (≤380px)
+    ═══════════════════════════════════════════ */
+    @media(max-width:380px){
+      h1.hero-title{font-size:1.9rem;}
+      .hero-stats{grid-template-columns:repeat(3,1fr);}
+      .stat-card{padding:.65rem .4rem;}
+      .stat-num{font-size:1.05rem;}
+      .hdr-actions .btn span,.hdr-actions .btn svg+*{display:none;}
+      .hdr-actions .btn{padding:.5rem .7rem;}
     }
 
     /* ═══ CONTENT / REVIEWS / FOOTER EDITOR TABS ═══ */
@@ -386,6 +505,29 @@
     .ft-link-del svg { width:12px; height:12px; stroke:var(--red); fill:none; }
     .ft-add-btn { font-size:.74rem; background:rgba(200,146,42,.1); color:var(--gold-light); border:1px solid rgba(200,146,42,.2); border-radius:6px; padding:.28rem .7rem; cursor:pointer; font-family:var(--font-body); transition:background .2s; display:inline-flex; align-items:center; gap:.3rem; margin-top:.3rem; }
     .ft-add-btn:hover { background:rgba(200,146,42,.2); }
+
+    /* ═══ EVENT IMAGE UPLOAD WIDGET ═══ */
+    .img-upload-wrap { margin-bottom:.9rem; }
+    .img-tabs { display:flex; gap:0; margin-bottom:.7rem; border:1px solid rgba(255,255,255,.12); border-radius:8px; overflow:hidden; }
+    .img-tab-btn { flex:1; padding:.45rem .6rem; font-size:.74rem; font-weight:600; background:transparent; border:none; cursor:pointer; color:rgba(255,255,255,.45); font-family:var(--font-body); transition:background .18s,color .18s; }
+    .img-tab-btn.active { background:rgba(200,146,42,.18); color:var(--gold-light); }
+    .img-tab-pane { display:none; }
+    .img-tab-pane.active { display:block; }
+    .img-drop-zone { border:2px dashed rgba(255,255,255,.18); border-radius:10px; padding:1.4rem 1rem; text-align:center; cursor:pointer; transition:border-color .2s,background .2s; position:relative; }
+    .img-drop-zone:hover,.img-drop-zone.drag-over { border-color:rgba(200,146,42,.5); background:rgba(200,146,42,.06); }
+    .img-drop-zone input[type=file] { position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%; }
+    .img-drop-icon { width:32px; height:32px; stroke:rgba(255,255,255,.3); fill:none; margin:0 auto .6rem; display:block; }
+    .img-drop-text { font-size:.78rem; color:rgba(255,255,255,.4); line-height:1.5; }
+    .img-drop-text strong { color:var(--gold-light); }
+    .img-preview-wrap { margin-top:.6rem; position:relative; display:none; }
+    .img-preview-wrap.show { display:block; }
+    .img-preview-wrap img { width:100%; max-height:140px; object-fit:cover; border-radius:8px; display:block; }
+    .img-preview-clear { position:absolute; top:.4rem; right:.4rem; background:rgba(10,15,30,.75); border:none; border-radius:50%; width:24px; height:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+    .img-preview-clear svg { width:12px; height:12px; stroke:#fff; fill:none; }
+    .img-compress-note { font-size:.7rem; color:rgba(255,255,255,.3); margin-top:.4rem; text-align:center; }
+    .img-size-badge { display:inline-block; font-size:.65rem; background:rgba(74,222,128,.12); color:#4ade80; border-radius:99px; padding:.15rem .55rem; margin-left:.4rem; }
+    .img-size-badge.warn { background:rgba(250,204,21,.12); color:#facc15; }
+    .img-size-badge.err  { background:rgba(248,113,113,.12); color:#f87171; }
   </style>
 </head>
 <body>
@@ -620,7 +762,8 @@
               <p style="margin-top:.7rem;">• Add a second tab, name it <code>Events</code> — add these headers in Row 1:</p>
               <div class="code-block">ID	Title	Category	Date	Venue	Seats	Status	Link	Image	Video	Description</div>
               <button class="copy-btn" onclick="copyText('ID\tTitle\tCategory\tDate\tVenue\tSeats\tStatus\tLink\tImage\tVideo\tDescription')">Copy Events headers</button>
-              <p style="margin-top:.7rem;">• Add a third tab, name it <code>SiteContent</code> — add these headers in Row 1:</p>
+              <p style="margin-top:.7rem;">• Add a third tab, name it <code>EventImages</code> — add headers in Row 1: <code>imageKey</code> &nbsp;<code>imageData</code> &nbsp;(this stores uploaded event photos)<br>
+              • Add a fourth tab, name it <code>SiteContent</code> — add these headers in Row 1:</p>
               <div class="code-block">data	value</div>
               <p style="margin-top:.7rem;">• Add a fourth tab, name it <code>Reviews</code> — same headers:</p>
               <div class="code-block">data	value</div>
@@ -648,6 +791,7 @@ function doPost(e) {
     if (action === 'addEvent')     return saveEvent(payload.data, false);
     if (action === 'editEvent')    return saveEvent(payload.data, true);
     if (action === 'deleteEvent')  return deleteEvent(payload.id);
+    if (action === 'saveImage')    return saveEventImage(payload.imageKey, payload.imageData);
     if (action === 'saveContent')  return saveKeyValue('SiteContent', payload.data);
     if (action === 'saveReviews')  return saveKeyValue('Reviews', payload.data);
     if (action === 'saveFooter')   return saveKeyValue('FooterLinks', payload.data);
@@ -661,7 +805,16 @@ function doPost(e) {
 function doGet(e) {
   try {
     const type = (e.parameter.type || 'leads');
-    if (type === 'events')      return jsonOut({success:true, events: getSheetRows('Events')});
+    if (type === 'events') {
+      const evRows = getSheetRows('Events');
+      // Embed stored images back into each event row
+      evRows.forEach(ev => {
+        if (ev.image && ev.image.startsWith('img_')) {
+          ev.image = getEventImage(ev.image) || ev.image;
+        }
+      });
+      return jsonOut({success:true, events: evRows});
+    }
     if (type === 'siteContent') return jsonOut({success:true, data: getKeyValueSheet('SiteContent')});
     if (type === 'reviews')     return jsonOut({success:true, data: getKeyValueSheet('Reviews')});
     if (type === 'footerLinks') return jsonOut({success:true, data: getKeyValueSheet('FooterLinks')});
@@ -669,6 +822,35 @@ function doGet(e) {
   } catch(err) {
     return jsonOut({success:false, error:err.message});
   }
+}
+
+// ── EVENT IMAGES (stored separately to keep Event rows small) ────
+function saveEventImage(imageKey, imageData) {
+  let sheet = SS.getSheetByName('EventImages');
+  if (!sheet) {
+    sheet = SS.insertSheet('EventImages');
+    sheet.appendRow(['imageKey', 'imageData']);
+  }
+  // Upsert: update existing key or append new row
+  const rows = sheet.getDataRange().getValues();
+  for (let i = 1; i < rows.length; i++) {
+    if (rows[i][0] === imageKey) {
+      sheet.getRange(i + 1, 2).setValue(imageData);
+      return jsonOut({success:true, imageKey});
+    }
+  }
+  sheet.appendRow([imageKey, imageData]);
+  return jsonOut({success:true, imageKey});
+}
+
+function getEventImage(imageKey) {
+  const sheet = SS.getSheetByName('EventImages');
+  if (!sheet) return null;
+  const rows = sheet.getDataRange().getValues();
+  for (let i = 1; i < rows.length; i++) {
+    if (rows[i][0] === imageKey) return rows[i][1] || null;
+  }
+  return null;
 }
 
 // ── KEY-VALUE STORE (for SiteContent, Reviews, FooterLinks) ──────
@@ -792,6 +974,7 @@ function jsonOut(obj) {
             ✅ <strong style="color:#fff;">Leads tab</strong> — Every registration POSTs to your Leads sheet in real time.<br>
             ✅ <strong style="color:#fff;">Public visitors</strong> — Events section loads fresh from Sheets on every page load — no caching, no stale data.<br>
             ✅ <strong style="color:#fff;">Registration form</strong> — Event dropdown always reflects the current live events list from Sheets.<br>
+            ✅ <strong style="color:#fff;">Event image upload</strong> — Photos are compressed in-browser, uploaded separately to the EventImages sheet, then referenced by events — works globally.<br>
             ✅ <strong style="color:#fff;">Content tab</strong> — Edit hero text, images, stats, registration section copy — all stored in Google Sheets, visible globally.<br>
             ✅ <strong style="color:#fff;">Reviews tab</strong> — Add/edit customer testimonials shown in the Programme Overview section.<br>
             ✅ <strong style="color:#fff;">Footer tab</strong> — Update social media handles, WhatsApp numbers and email links without any code.
@@ -822,7 +1005,39 @@ function jsonOut(obj) {
             </div>
           </div>
           <div class="ag"><label>Registration URL *</label><input id="a_link" type="url" placeholder="https://docs.google.com/forms/your-form"/></div>
-          <div class="ag"><label>Banner Image URL</label><input id="a_image" placeholder="https://images.unsplash.com/…"/></div>
+          <!-- ─ Banner Image: upload OR URL ─ -->
+          <div class="ag img-upload-wrap">
+            <label style="display:flex;align-items:center;gap:.5rem;">
+              Banner Image
+              <span id="imgSizeBadge" class="img-size-badge" style="display:none;"></span>
+            </label>
+            <div class="img-tabs">
+              <button type="button" class="img-tab-btn active" onclick="switchImgTab('upload')" id="imgTabUpload">📁 Upload File</button>
+              <button type="button" class="img-tab-btn" onclick="switchImgTab('url')" id="imgTabUrl">🔗 Image URL</button>
+            </div>
+            <!-- Upload pane -->
+            <div class="img-tab-pane active" id="imgPaneUpload">
+              <div class="img-drop-zone" id="imgDropZone">
+                <input type="file" id="a_image_file" accept="image/jpeg,image/png,image/webp,image/gif" onchange="handleImageFile(this.files[0])"/>
+                <svg class="img-drop-icon" viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+                <p class="img-drop-text"><strong>Click to choose</strong> or drag &amp; drop<br>JPG · PNG · WebP · GIF — auto-compressed to ≤150 KB</p>
+              </div>
+              <div class="img-preview-wrap" id="imgPreviewWrap">
+                <img id="imgPreviewImg" src="" alt="preview"/>
+                <button type="button" class="img-preview-clear" onclick="clearImageUpload()" title="Remove image">
+                  <svg viewBox="0 0 24 24" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+              <p class="img-compress-note">Image is compressed in your browser, then stored in Google Sheets alongside the event — visible globally to everyone.</p>
+            </div>
+            <!-- URL pane -->
+            <div class="img-tab-pane" id="imgPaneUrl">
+              <input id="a_image" placeholder="https://images.unsplash.com/photo-…" style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:9px;padding:.65rem .85rem;font-size:.85rem;color:#fff;font-family:var(--font-body);outline:none;width:100%;transition:border-color .2s;" oninput="previewUrlImage(this.value)"/>
+              <div class="img-preview-wrap" id="imgPreviewWrapUrl" style="margin-top:.6rem;">
+                <img id="imgPreviewImgUrl" src="" alt="preview" onerror="this.parentElement.classList.remove('show')"/>
+              </div>
+            </div>
+          </div>
           <div class="ag"><label>YouTube Embed URL (optional)</label><input id="a_video" placeholder="https://www.youtube.com/embed/xxxxx"/></div>
           <div class="ag"><label>Description</label><textarea id="a_description" rows="4" placeholder="Describe the event — who it's for, what they'll learn, outcomes…"></textarea></div>
           <div class="adm-form-actions">
@@ -1007,7 +1222,7 @@ function jsonOut(obj) {
    admin on laptop — will all use this same URL.
    No per-device setup needed.
 ═══════════════════════════════════════════════ */
-const HARDCODED_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzs1s7mJVcpmZ5KsuSTl6FWaAV8VD5FGVVeOMTLoPBw3ag5Zq0eEnzGH3f_PealVQuqaA/exec';  // ← PASTE YOUR URL INSIDE THESE QUOTES
+const HARDCODED_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyJ_Th5VeZjkBHL8G7bN5f6NzqrB5leA3FgQ2qj-Aok3oVLpibWjKtZJNIT5UkC-Q7Irw/exec';  // ← PASTE YOUR URL INSIDE THESE QUOTES
 
 const ADMIN_USER = 'admin';
 const ADMIN_PASS = 'vetri2025';
@@ -1316,7 +1531,17 @@ function editEventForm(id) {
   document.getElementById('a_seats').value     = ev.seats||'';
   document.getElementById('a_status').value    = ev.status||'open';
   document.getElementById('a_link').value      = ev.link||'';
-  document.getElementById('a_image').value     = ev.image||'';
+  // Populate image field — detect if stored as base64 or URL
+  const imgVal = ev.image||'';
+  if (imgVal.startsWith('data:')) {
+    switchImgTab('upload');
+    setUploadPreview(imgVal);
+  } else {
+    switchImgTab('url');
+    const urlField = document.getElementById('a_image');
+    if (urlField) urlField.value = imgVal;
+    previewUrlImage(imgVal);
+  }
   document.getElementById('a_video').value     = ev.video||'';
   document.getElementById('a_description').value = ev.description||'';
   document.getElementById('adminFormTitle').childNodes[0].textContent = 'Edit Event ';
@@ -1333,42 +1558,68 @@ async function saveEvent() {
 
   const editId = document.getElementById('editId').value;
   const isEdit = !!editId;
-  const evData = {
-    id:          isEdit ? editId : '',
-    title,
-    category:    document.getElementById('a_category').value.trim(),
-    date:        document.getElementById('a_date').value.trim(),
-    venue:       document.getElementById('a_venue').value.trim(),
-    seats:       document.getElementById('a_seats').value.trim(),
-    status:      document.getElementById('a_status').value,
-    link:        document.getElementById('a_link').value.trim(),
-    image:       document.getElementById('a_image').value.trim(),
-    video:       document.getElementById('a_video').value.trim(),
-    description: document.getElementById('a_description').value.trim()
-  };
 
   // Show saving state
   const btn = document.getElementById('saveEvBtn');
-  btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
-  document.getElementById('savingIndicator').style.display = 'flex';
+  const savInd = document.getElementById('savingIndicator');
+  const resetBtn = () => {
+    btn.disabled = false;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save to Sheets';
+    savInd.style.display = 'none';
+  };
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
+  savInd.style.display = 'flex';
 
   try {
-    const res  = await fetch(SHEETS_URL, {
-      method: 'POST',
-      headers: {'Content-Type':'text/plain'},
-      body: JSON.stringify({action: isEdit ? 'editEvent' : 'addEvent', data: evData})
-    });
+    // ── STEP 1: Upload image separately if a file was uploaded ──
+    let imageValue = getEventImageValue();
+    if (imageValue && imageValue.startsWith('data:')) {
+      btn.innerHTML = '<span class="spinner-sm"></span> Uploading image…';
+      // Use event ID (edit) or a new timestamp key
+      const imageKey = 'img_' + (editId || Date.now().toString());
+      const imgRes  = await postToSheets({action:'saveImage', imageKey, imageData: imageValue});
+      const imgData = await imgRes.json();
+      if (!imgData.success) throw new Error('Image upload failed: ' + (imgData.error||'unknown'));
+      imageValue = imageKey;   // store just the key in the event row
+      btn.innerHTML = '<span class="spinner-sm"></span> Saving event…';
+    }
+
+    // ── STEP 2: Save the event row (no image blob, just key or URL) ──
+    const evData = {
+      id:          isEdit ? editId : '',
+      title,
+      category:    document.getElementById('a_category').value.trim(),
+      date:        document.getElementById('a_date').value.trim(),
+      venue:       document.getElementById('a_venue').value.trim(),
+      seats:       document.getElementById('a_seats').value.trim(),
+      status:      document.getElementById('a_status').value,
+      link:        document.getElementById('a_link').value.trim(),
+      image:       imageValue,
+      video:       document.getElementById('a_video').value.trim(),
+      description: document.getElementById('a_description').value.trim()
+    };
+
+    const res  = await postToSheets({action: isEdit ? 'editEvent' : 'addEvent', data: evData});
     const data = await res.json();
     if (data.success) {
       showToast(isEdit ? 'Event updated in Sheets ✓' : 'Event added to Sheets ✓', 'success');
       resetEvForm();
-      await fetchEvents();  // refresh public + admin list
+      await fetchEvents();
     } else throw new Error(data.error||'Failed');
   } catch(err) {
     showToast('Could not save event: ' + err.message, 'error');
   }
-  btn.disabled = false; btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save to Sheets';
-  document.getElementById('savingIndicator').style.display = 'none';
+  resetBtn();
+}
+
+/* Shared POST helper — keeps all fetch calls consistent */
+function postToSheets(payload) {
+  return fetch(SHEETS_URL, {
+    method: 'POST',
+    headers: {'Content-Type':'text/plain'},
+    body: JSON.stringify(payload)
+  });
 }
 
 async function deleteEvent(id, title) {
@@ -1376,11 +1627,7 @@ async function deleteEvent(id, title) {
   if (!SHEETS_URL) { showToast('Sheets not connected','error'); return; }
   if (!confirm(`Delete "${title}"? This will remove it from Google Sheets permanently.`)) return;
   try {
-    const res  = await fetch(SHEETS_URL, {
-      method: 'POST',
-      headers: {'Content-Type':'text/plain'},
-      body: JSON.stringify({action:'deleteEvent', id})
-    });
+    const res  = await postToSheets({action:'deleteEvent', id});
     const data = await res.json();
     if (data.success) {
       showToast('Event deleted from Sheets','error');
@@ -1392,7 +1639,10 @@ async function deleteEvent(id, title) {
 }
 
 function resetEvForm() {
-  ['a_title','a_category','a_date','a_venue','a_seats','a_link','a_image','a_video','a_description'].forEach(id=>document.getElementById(id).value='');
+  ['a_title','a_category','a_date','a_venue','a_seats','a_link','a_video','a_description'].forEach(id=>document.getElementById(id).value='');
+  clearImageUpload();
+  const urlF=document.getElementById('a_image'); if(urlF) urlF.value='';
+  switchImgTab('upload');
   document.getElementById('a_status').value='open';
   document.getElementById('editId').value='';
   document.getElementById('adminFormTitle').childNodes[0].textContent = 'Add New Event ';
@@ -1445,7 +1695,7 @@ async function submitLead() {
 
   try {
     if (SHEETS_URL) {
-      await fetch(SHEETS_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'addLead',data:lead})});
+      await postToSheets({action:'addLead', data:lead});
     }
   } catch(e) { /* silent — POST likely still went through */ }
 
@@ -1725,7 +1975,7 @@ async function saveContentToSheets() {
     modSub:     document.getElementById('ce_mod_sub').value.trim()    || DEFAULT_CONTENT.modSub,
   };
   try {
-    const res  = await fetch(SHEETS_URL, {method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'saveContent',data:JSON.stringify(c)})});
+    const res  = await postToSheets({action:'saveContent', data:JSON.stringify(c)});
     const data = await res.json();
     if (data.success) {
       siteContent = c; applyContent(c);
@@ -1785,7 +2035,7 @@ async function saveReviewsToSheets() {
   const rv = getReviewsFromDOM().filter(r=>r.quote||r.name);
   if (!rv.length) { showToast('Add at least one review','error'); return; }
   try {
-    const res  = await fetch(SHEETS_URL, {method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'saveReviews',data:JSON.stringify(rv)})});
+    const res  = await postToSheets({action:'saveReviews', data:JSON.stringify(rv)});
     const data = await res.json();
     if (data.success) {
       reviews = rv; applyReviews(rv);
@@ -1864,7 +2114,7 @@ async function saveFooterToSheets() {
   if (!SHEETS_URL) { showToast('Connect Sheets first','error'); return; }
   const ft = getFooterFromDOM();
   try {
-    const res  = await fetch(SHEETS_URL, {method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({action:'saveFooter',data:JSON.stringify(ft)})});
+    const res  = await postToSheets({action:'saveFooter', data:JSON.stringify(ft)});
     const data = await res.json();
     if (data.success) {
       footerLinks = ft; applyFooter(ft);
@@ -1896,6 +2146,120 @@ function setStatus(id, msg, ok) {
   el.className = 'ce-status' + (ok===true?' ok':ok==='err'?' err':'');
   setTimeout(()=>{ el.textContent=''; el.className='ce-status'; }, 4000);
 }
+
+
+/* ═══════════════════ IMAGE UPLOAD WIDGET ═══════════════════ */
+let _uploadedImageData = '';   // base64 data URI from uploaded file
+
+function switchImgTab(mode) {
+  document.getElementById('imgTabUpload').classList.toggle('active', mode==='upload');
+  document.getElementById('imgTabUrl').classList.toggle('active', mode==='url');
+  document.getElementById('imgPaneUpload').classList.toggle('active', mode==='upload');
+  document.getElementById('imgPaneUrl').classList.toggle('active', mode==='url');
+}
+
+function getEventImageValue() {
+  // If upload tab has data, use it; else fall back to URL field
+  if (_uploadedImageData) return _uploadedImageData;
+  const urlField = document.getElementById('a_image');
+  return urlField ? urlField.value.trim() : '';
+}
+
+function setUploadPreview(dataUri) {
+  _uploadedImageData = dataUri;
+  document.getElementById('imgPreviewImg').src = dataUri;
+  document.getElementById('imgPreviewWrap').classList.add('show');
+  updateImageSizeBadge(dataUri.length);
+}
+
+function clearImageUpload() {
+  _uploadedImageData = '';
+  document.getElementById('imgPreviewImg').src = '';
+  document.getElementById('imgPreviewWrap').classList.remove('show');
+  const fi = document.getElementById('a_image_file');
+  if (fi) fi.value = '';
+  hideSizeBadge();
+}
+
+function previewUrlImage(url) {
+  const wrap = document.getElementById('imgPreviewWrapUrl');
+  const img  = document.getElementById('imgPreviewImgUrl');
+  if (!url) { wrap.classList.remove('show'); return; }
+  img.src = url;
+  img.onload  = () => wrap.classList.add('show');
+  img.onerror = () => wrap.classList.remove('show');
+}
+
+function updateImageSizeBadge(b64len) {
+  const badge = document.getElementById('imgSizeBadge');
+  if (!badge) return;
+  // b64 length * 0.75 ≈ bytes
+  const kb = Math.round(b64len * 0.75 / 1024);
+  badge.style.display = 'inline-block';
+  badge.textContent   = kb + ' KB';
+  badge.className     = 'img-size-badge' + (kb > 200 ? ' warn' : '');
+}
+
+function hideSizeBadge() {
+  const badge = document.getElementById('imgSizeBadge');
+  if (badge) { badge.style.display='none'; badge.textContent=''; }
+}
+
+function handleImageFile(file) {
+  if (!file) return;
+  if (!file.type.startsWith('image/')) { showToast('Please choose an image file','error'); return; }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const original = e.target.result;
+    compressImage(original, 150, (compressed) => {
+      setUploadPreview(compressed);
+      showToast('Image ready ✓ — will be saved with event','success');
+    });
+  };
+  reader.readAsDataURL(file);
+}
+
+/* Compress image to target max KB using canvas */
+function compressImage(dataUri, maxKB, callback) {
+  const img = new Image();
+  img.onload = () => {
+    const maxPx  = 1200;     // cap longest side at 1200px
+    let w = img.width, h = img.height;
+    if (w > maxPx || h > maxPx) {
+      if (w >= h) { h = Math.round(h * maxPx / w); w = maxPx; }
+      else        { w = Math.round(w * maxPx / h); h = maxPx; }
+    }
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+    // Binary-search for quality that hits ≤ maxKB
+    let lo = 0.1, hi = 0.92, best = canvas.toDataURL('image/jpeg', 0.7);
+    for (let i = 0; i < 8; i++) {
+      const mid = (lo + hi) / 2;
+      const attempt = canvas.toDataURL('image/jpeg', mid);
+      const kb = Math.round(attempt.length * 0.75 / 1024);
+      if (kb <= maxKB) { best = attempt; lo = mid; }
+      else             { hi = mid; }
+    }
+    callback(best);
+  };
+  img.src = dataUri;
+}
+
+/* Drag & drop */
+document.addEventListener('DOMContentLoaded', () => {
+  const zone = document.getElementById('imgDropZone');
+  if (!zone) return;
+  zone.addEventListener('dragover',  e => { e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) handleImageFile(file);
+  });
+});
 
 
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>20));
