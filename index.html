@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vetri Madani | Financial Training & Events</title>
+  <title>MFPC Eventlah | Financial Training & Events</title>
   <meta name="description" content="Join Vetri Madani's premium financial training programmes. Build wealth, plan retirement, gain financial confidence." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -111,7 +111,7 @@
     .ev-media iframe{width:100%;height:100%;border:0;}
     .ev-tag{position:absolute;top:.9rem;left:.9rem;background:var(--gold);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.28rem .75rem;border-radius:99px;}
     .ev-status{position:absolute;top:.9rem;right:.9rem;background:rgba(10,15,30,.75);backdrop-filter:blur(8px);color:#fff;font-size:.66rem;font-weight:600;padding:.28rem .75rem;border-radius:99px;display:flex;align-items:center;gap:.3rem;}
-    .ev-body{padding:1.4rem;}
+    .ev-body{padding:1.4rem;position:relative;z-index:20;}
     .ev-body h3{font-size:1.15rem;font-weight:700;color:var(--ink);line-height:1.3;}
     .ev-meta{margin-top:.9rem;display:flex;flex-direction:column;gap:.45rem;}
     .ev-meta-row{display:flex;align-items:center;gap:.55rem;font-size:.8rem;color:var(--slate);}
@@ -531,14 +531,18 @@
 
     /* ═══ EVENT HOVER OVERLAY ═══ */
     .ev-card { position:relative; }
+    /* Overlay sits ONLY over the .ev-media image area — never over ev-body */
     .ev-hover-overlay {
-      position:absolute; inset:0; border-radius:22px; z-index:10;
+      position:absolute; left:0; right:0; top:0;
+      height:var(--ev-media-h, 220px); /* matches .ev-media height */
+      border-radius:22px 22px 0 0; z-index:10;
       background:linear-gradient(to top, rgba(10,15,30,.82) 0%, rgba(10,15,30,.38) 55%, transparent 100%);
       display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
-      padding:1.5rem 1.2rem; opacity:0; transition:opacity .28s ease;
-      pointer-events:none;
+      padding:1.2rem 1.2rem; opacity:0; transition:opacity .28s ease;
+      pointer-events:none; /* never blocks clicks when faded out */
     }
-    .ev-card:hover .ev-hover-overlay { opacity:1; pointer-events:auto; }
+    /* On hover: show overlay but keep pointer-events ONLY on the pill itself */
+    .ev-card:hover .ev-hover-overlay { opacity:1; }
     .ev-hover-pill {
       display:inline-flex; align-items:center; gap:.5rem;
       background:var(--gold); color:#fff; font-size:.84rem; font-weight:700;
@@ -547,6 +551,8 @@
       box-shadow:0 6px 28px rgba(200,146,42,.45);
       animation:pillPop .3s cubic-bezier(.34,1.56,.64,1) both;
       transform-origin:center bottom;
+      pointer-events:auto; /* only the pill itself is clickable, not the whole overlay */
+      position:relative; z-index:11;
     }
     @keyframes pillPop {
       from { transform:scale(.7) translateY(12px); opacity:0; }
@@ -556,6 +562,7 @@
     .ev-hover-label {
       font-size:.72rem; color:rgba(255,255,255,.65); margin-top:.5rem;
       letter-spacing:.04em; text-align:center;
+      pointer-events:none;
     }
 
     /* ═══ MORE DETAILS & BROCHURE BUTTON ═══ */
@@ -613,7 +620,7 @@
 
     /* Mobile overlay */
     @media(max-width:640px){
-      .ev-hover-overlay { opacity:0!important; pointer-events:none!important; }
+      .ev-hover-overlay { display:none; } /* hidden on mobile — pill never shows */
       .ev-card-mobile-reg { display:flex; }
     }
     @media(min-width:641px){
@@ -661,6 +668,35 @@
     .exp-log .ok  { color:#4ade80; }
     .exp-log .err { color:#f87171; }
     @media(max-width:640px){ .exp-grid{grid-template-columns:1fr;} .exp-filters{flex-direction:column;} }
+
+    /* ═══ EVENT DETAILS MODAL ═══ */
+    .ev-detail-modal { max-width:540px; }
+    .ev-detail-title { font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:.3rem; }
+    .ev-detail-meta  { font-size:.78rem; color:rgba(255,255,255,.45); margin-bottom:1.5rem; display:flex; flex-wrap:wrap; gap:.5rem; }
+    .ev-detail-meta span { display:flex; align-items:center; gap:.3rem; }
+    .ev-detail-section { margin-bottom:1.2rem; }
+    .ev-detail-section-title { font-size:.7rem; font-weight:700; color:rgba(255,255,255,.38); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.65rem; }
+    .ev-detail-btn { display:flex; align-items:center; justify-content:center; gap:.55rem; width:100%; padding:.82rem 1rem; border-radius:12px; font-size:.88rem; font-weight:700; font-family:var(--font-body); cursor:pointer; border:none; transition:background .2s,transform .18s; }
+    .ev-detail-btn:hover { transform:translateY(-1px); }
+    .ev-detail-btn svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.5; flex-shrink:0; }
+    .ev-detail-btn.primary  { background:var(--gold); color:#fff; box-shadow:0 6px 22px rgba(200,146,42,.35); }
+    .ev-detail-btn.primary:hover { background:var(--gold-light); }
+    .ev-detail-btn.secondary { background:rgba(255,255,255,.06); color:rgba(255,255,255,.75); border:1.5px solid rgba(255,255,255,.12); margin-top:.6rem; }
+    .ev-detail-btn.secondary:hover { background:rgba(255,255,255,.1); color:#fff; }
+    .ev-detail-btn.disabled  { opacity:.4; pointer-events:none; }
+    .ev-detail-btn-note { font-size:.7rem; color:rgba(255,255,255,.3); text-align:center; margin-top:.4rem; }
+    .ev-detail-divider { border:none; border-top:1px solid rgba(255,255,255,.07); margin:1rem 0; }
+
+    /* ═══ EXPORT PAGINATION ═══ */
+    .exp-pag { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; margin-top:.75rem; }
+    .exp-pag-info { font-size:.72rem; color:rgba(255,255,255,.35); flex:1; }
+    .exp-pag-btn { width:30px; height:30px; border-radius:7px; border:1.5px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:.78rem; font-family:var(--font-body); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .18s,border-color .18s; }
+    .exp-pag-btn:hover:not(:disabled) { background:rgba(200,146,42,.15); border-color:rgba(200,146,42,.35); color:var(--gold-light); }
+    .exp-pag-btn:disabled { opacity:.3; cursor:default; }
+    .exp-pag-btn.active { background:rgba(200,146,42,.18); border-color:rgba(200,146,42,.4); color:var(--gold-light); font-weight:700; }
+    .exp-search { background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.1); border-radius:8px; padding:.45rem .75rem; font-size:.8rem; color:#fff; font-family:var(--font-body); outline:none; width:100%; margin-bottom:.75rem; transition:border-color .2s; }
+    .exp-search:focus { border-color:rgba(200,146,42,.45); }
+    .exp-search::placeholder { color:rgba(255,255,255,.25); }
   </style>
 </head>
 <body>
@@ -842,7 +878,7 @@
         <div class="form-success" id="leadSuccess">
           <div class="succ-ring"><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
           <h4>Registration Received!</h4>
-          <p>Thank you! Our team will contact you within 24 hours with full event details.</p>
+          <p>Thank you! Our team will contact you once HRDC approval of participation is received.</p>
           <button onclick="resetLeadForm()" class="btn btn-ghost" style="margin-top:1.2rem;">Register Another</button>
         </div>
       </div>
@@ -973,6 +1009,7 @@ function doPost(e) {
     if (action === 'saveImage')     return saveEventImage(payload.imageKey, payload.imageData);
     if (action === 'savePdf')       return saveEventPdf(payload.pdfKey, payload.pdfData, payload.pdfName);
     if (action === 'saveIcFile')    return saveLeadFile(payload.fileKey, payload.fileData, payload.fileName);
+    if (action === 'getPdf')        { const p=getEventPdf(payload.key); return p ? jsonOut({success:true,pdfData:p.data,pdfName:p.name}) : jsonOut({success:false,error:'Not found'}); }
     if (action === 'saveContent')   return saveKeyValue('SiteContent', payload.data);
     if (action === 'saveReviews')   return saveKeyValue('Reviews', payload.data);
     if (action === 'saveFooter')    return saveKeyValue('FooterLinks', payload.data);
@@ -989,18 +1026,24 @@ function doGet(e) {
     if (type === 'events') {
       const evRows = getSheetRows('Events');
       evRows.forEach(ev => {
+        // Embed image data (base64) directly
         if (ev.image && ev.image.startsWith('img_')) {
           ev.image = getEventImage(ev.image) || ev.image;
         }
-        // brochure and declaration are stored as keys; keep keys — client fetches on demand
+        // Embed brochure PDF data directly (keyed as bro_...)
+        // Sheet column "Brochure" -> normalised key "brochure"
+        if (ev.brochure && ev.brochure.startsWith('bro_')) {
+          const pdf = getEventPdf(ev.brochure);
+          if (pdf) { ev.brochure_data = pdf.data; ev.brochure_name = pdf.name; }
+        }
+        // Embed declaration PDF data directly (keyed as dec_...)
+        // Sheet column "Declaration" -> normalised key "declaration" (NOT declaration_url)
+        if (ev.declaration && ev.declaration.startsWith('dec_')) {
+          const pdf = getEventPdf(ev.declaration);
+          if (pdf) { ev.declaration_data = pdf.data; ev.declaration_name = pdf.name; }
+        }
       });
       return jsonOut({success:true, events: evRows});
-    }
-    if (type === 'pdf') {
-      const key  = e.parameter.key || '';
-      const data = getEventPdf(key);
-      if (!data) return jsonOut({success:false, error:'PDF not found'});
-      return jsonOut({success:true, pdfData: data.data, pdfName: data.name});
     }
     if (type === 'siteContent') return jsonOut({success:true, data: getKeyValueSheet('SiteContent')});
     if (type === 'reviews')     return jsonOut({success:true, data: getKeyValueSheet('Reviews')});
@@ -1117,10 +1160,11 @@ function saveEvent(d, isEdit) {
     const data = sheet.getDataRange().getValues();
     for (let i = 1; i < data.length; i++) {
       if (String(data[i][0]) === String(d.id)) {
-        sheet.getRange(i+1, 1, 1, 11).setValues([[
+        sheet.getRange(i+1, 1, 1, 13).setValues([[
           d.id, d.title||'', d.category||'', d.date||'',
           d.venue||'', d.seats||'', d.status||'open',
-          d.link||'', d.image||'', d.video||'', d.description||''
+          d.link||'', d.image||'', d.video||'', d.description||'',
+          d.brochure||'', d.declaration||d.declaration_url||''
         ]]);
         return jsonOut({success:true});
       }
@@ -1130,10 +1174,11 @@ function saveEvent(d, isEdit) {
     // New event — prepend at top (insert row 2, push others down)
     const id = Date.now().toString();
     sheet.insertRowAfter(1);
-    sheet.getRange(2, 1, 1, 11).setValues([[
+    sheet.getRange(2, 1, 1, 13).setValues([[
       id, d.title||'', d.category||'', d.date||'',
       d.venue||'', d.seats||'', d.status||'open',
-      d.link||'', d.image||'', d.video||'', d.description||''
+      d.link||'', d.image||'', d.video||'', d.description||'',
+      d.brochure||'', d.declaration||d.declaration_url||''
     ]]);
     return jsonOut({success:true, id});
   }
@@ -1472,12 +1517,12 @@ function jsonOut(obj) {
 
           <div class="exp-filters">
             <label>Filter by Event
-              <select id="expEventFilter" onchange="expRenderPreview()">
+              <select id="expEventFilter" onchange="expRegPage=1;expRenderPreview()">
                 <option value="">All Events</option>
               </select>
             </label>
             <label>Filter by Status
-              <select id="expStatusFilter" onchange="expRenderPreview()">
+              <select id="expStatusFilter" onchange="expRegPage=1;expRenderPreview()">
                 <option value="">All Statuses</option>
                 <option value="new">New</option>
                 <option value="contacted">Contacted</option>
@@ -1492,7 +1537,7 @@ function jsonOut(obj) {
               <input type="date" id="expDateTo" onchange="expRenderPreview()"/>
             </label>
             <label>Has Uploaded Files
-              <select id="expFilesFilter" onchange="expRenderPreview()">
+              <select id="expFilesFilter" onchange="expRegPage=1;expRenderPreview()">
                 <option value="">All</option>
                 <option value="yes">Has files</option>
                 <option value="no">No files</option>
@@ -1500,6 +1545,8 @@ function jsonOut(obj) {
             </label>
           </div>
 
+          <!-- Search -->
+          <input class="exp-search" id="expSearch" placeholder="Search by name, email, phone or IC number…" oninput="expSearchChanged()"/>
           <!-- Preview table -->
           <div class="exp-preview" id="expPreview">
             <div class="exp-preview-hdr">
@@ -1513,6 +1560,7 @@ function jsonOut(obj) {
             </div>
             <div id="expPreviewRows"><div class="exp-empty">Load leads to preview</div></div>
           </div>
+          <div id="expPagReg" class="exp-pag" style="margin-bottom:.6rem;"></div>
           <div style="font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:.9rem;" id="expPreviewCount"></div>
 
           <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;">
@@ -1537,9 +1585,11 @@ function jsonOut(obj) {
 
           <!-- Per-lead file download list -->
           <h4 style="font-size:.82rem;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:.75rem;">Registrant Files (IC &amp; Declaration Uploads)</h4>
+          <input class="exp-search" id="expFileSearch" placeholder="Search by name or event…" oninput="expFileSearchChanged()"/>
           <div id="expFileList">
             <div class="exp-empty">No leads with uploaded files yet.</div>
           </div>
+          <div id="expPagFiles" class="exp-pag" style="margin-top:.6rem;margin-bottom:.5rem;"></div>
 
           <!-- Bulk download all files -->
           <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06);">
@@ -1570,6 +1620,52 @@ function jsonOut(obj) {
   </div>
 </section>
 
+<!-- EVENT DETAILS MODAL -->
+<div class="modal-overlay" id="evDetailModal">
+  <div class="modal-box ev-detail-modal">
+    <button class="modal-close" onclick="closeEvDetailModal()">
+      <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <div class="ev-detail-title" id="evDetailTitle">Event Details</div>
+    <div class="ev-detail-meta" id="evDetailMeta"></div>
+
+    <!-- Brochure section -->
+    <div class="ev-detail-section" id="evDetailBrochureSection">
+      <div class="ev-detail-section-title">Event Brochure</div>
+      <button id="evDetailBrochureBtn" class="ev-detail-btn primary" onclick="evDetailOpenBrochure()">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        View Brochure
+      </button>
+      <p class="ev-detail-btn-note">Opens in a new tab as a PDF</p>
+    </div>
+
+    <hr class="ev-detail-divider" id="evDetailDivider"/>
+
+    <!-- Declaration form section -->
+    <div class="ev-detail-section" id="evDetailDeclSection">
+      <div class="ev-detail-section-title">Trainee Declaration Form</div>
+      <p style="font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:.8rem;">Download, fill in, sign and upload the declaration form when you register your interest below.</p>
+      <button id="evDetailDeclBtn" class="ev-detail-btn secondary" onclick="evDetailDownloadDecl()">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Declaration Form
+      </button>
+    </div>
+
+    <hr class="ev-detail-divider"/>
+
+    <!-- Register interest CTA -->
+    <div class="ev-detail-section" style="margin-bottom:0;">
+      <button class="ev-detail-btn primary" onclick="evDetailRegisterInterest()" style="background:rgba(200,146,42,.12);color:var(--gold);box-shadow:none;border:1.5px solid rgba(200,146,42,.28);">
+        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+        Register Interest for This Event
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="ft-inner">
@@ -1582,7 +1678,7 @@ function jsonOut(obj) {
       <div class="ft-col"><h5>Programme</h5><a href="#modules">Wealth Fundamentals</a><a href="#modules">Retirement Planning</a><a href="#modules">Smart Investing</a></div>
       <div class="ft-col" id="ftColContact"><h5 id="ftColContact_title">Contact</h5><a href="mailto:info@vetrimadani.com">info@vetrimadani.com</a><a href="https://wa.me/601234567890" target="_blank">WhatsApp Us</a><a href="#">Facebook</a><a href="#">Instagram</a></div>
     </div>
-    <div class="ft-bottom"><span>© <span id="year"></span> MFPC. All rights reserved.</span><span>Crafted for financial empowerment.</span></div>
+    <div class="ft-bottom"><span>© <span id="year"></span> Vetri Madani. All rights reserved.</span><span>Crafted for financial empowerment.</span></div>
   </div>
 </footer>
 
@@ -1613,7 +1709,7 @@ function jsonOut(obj) {
    admin on laptop — will all use this same URL.
    No per-device setup needed.
 ═══════════════════════════════════════════════ */
-const HARDCODED_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwV8xRInIZRCXiyF0OlezpQKXFkUSwW7PS5awQulEHqPlYA7wTF8P3KH7w1C3qIDvb3/exec';  // ← PASTE YOUR URL INSIDE THESE QUOTES
+const HARDCODED_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxomFCJHYFrLYA9aL9_rajMPYbC8RJ8F2dBjeorxqjg4jSbQ7cihGiAx2Y3rlG-8l6IAw/exec';  // ← PASTE YOUR URL INSIDE THESE QUOTES
 
 const ADMIN_USER = 'admin';
 const ADMIN_PASS = 'vetri2025';
@@ -1846,9 +1942,12 @@ function renderEventCards(evList) {
   }
   const fallback = 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1200&auto=format&fit=crop';
   grid.innerHTML = evList.map(ev => {
-    // More Details: opens brochure PDF if uploaded, else scrolls to register form
-    const moreBtn = ev.brochure
-      ? `<button onclick="openBrochure('${esc(ev.id)}')" class="btn-more">
+    const hasBrochure = !!(ev.brochure_data || (ev.brochure && ev.brochure !== ''));
+    const hasDecl     = !!(ev.declaration_data || (ev.declaration && ev.declaration !== ''));
+
+    // Button 1: More Details — opens brochure if uploaded, else goes to register form
+    const moreBtn = hasBrochure
+      ? `<button onclick="openPdf('${esc(ev.id)}','brochure')" class="btn-more">
            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
            More Details
          </button>`
@@ -1856,14 +1955,13 @@ function renderEventCards(evList) {
            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
            More Details
          </button>`;
-    // Download declaration form (shown if admin uploaded one for this event)
-    const declLink = ev.declaration_url
-      ? `<div style="margin-bottom:.85rem;">
-           <button onclick="downloadDeclaration('${esc(ev.id)}')" class="btn-decl">
-             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-             Download Trainee Declaration Form
-           </button>
-         </div>` : '';
+
+    // Button 2: Download Declaration — separate button, always visible if uploaded
+    const declLink = hasDecl
+      ? `<button onclick="openPdf('${esc(ev.id)}','declaration')" class="btn-decl" style="margin-bottom:.85rem;display:inline-flex;width:100%;">
+           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+           Download Declaration Form
+         </button>` : '';
     return `
     <article class="ev-card fade-up">
       <div class="ev-hover-overlay">
@@ -1965,12 +2063,13 @@ function editEventForm(id) {
     previewUrlImage(imgVal);
   }
   document.getElementById('a_video').value     = ev.video||'';
-  // Brochure
+  // Brochure (key stored in ev.brochure)
   const bCur = document.getElementById('a_brochure_current');
   if (bCur) { bCur.value = ev.brochure||''; document.getElementById('brochureCurrentNote').style.display = ev.brochure ? 'block' : 'none'; }
-  // Declaration
+  // Declaration (sheet column "Declaration" -> ev.declaration; declaration_url is the JS-side save name)
   const dCur = document.getElementById('a_declaration_current');
-  if (dCur) { dCur.value = ev.declaration_url||''; document.getElementById('declarationCurrentNote').style.display = ev.declaration_url ? 'block' : 'none'; }
+  const declKey = ev.declaration_url || ev.declaration || '';
+  if (dCur) { dCur.value = declKey; document.getElementById('declarationCurrentNote').style.display = declKey ? 'block' : 'none'; }
   clearPdfFile('brochure'); clearPdfFile('declaration');
   document.getElementById('a_description').value = ev.description||'';
   document.getElementById('adminFormTitle').childNodes[0].textContent = 'Edit Event ';
@@ -2051,8 +2150,8 @@ async function saveEvent() {
       image:        imageValue,
       video:        document.getElementById('a_video').value.trim(),
       description:  document.getElementById('a_description').value.trim(),
-      brochure:     brochureValue,
-      declaration_url: declarationValue
+      brochure:    brochureValue,
+      declaration: declarationValue
     };
 
     const res  = await postToSheets({action: isEdit ? 'editEvent' : 'addEvent', data: evData});
@@ -2785,50 +2884,7 @@ function clearPdfFile(type) {
   const nm = document.getElementById(type+'ChosenName'); if(nm) nm.textContent='';
 }
 
-/* Open brochure PDF from Sheets */
-async function openBrochure(evId) {
-  const ev = events.find(e=>e.id===evId);
-  if (!ev || !ev.brochure) { showToast('No brochure available for this event','error'); return; }
-  if (!SHEETS_URL) { showToast('Sheets not connected','error'); return; }
-  showToast('Loading brochure…');
-  try {
-    const res  = await fetch(SHEETS_URL + '?type=pdf&key=' + encodeURIComponent(ev.brochure));
-    const data = await res.json();
-    if (data.success && data.pdfData) {
-      // Convert base64 to blob and open in new tab
-      const byteStr = atob(data.pdfData.split(',')[1]);
-      const ab = new ArrayBuffer(byteStr.length);
-      const ia = new Uint8Array(ab);
-      for(let i=0;i<byteStr.length;i++) ia[i]=byteStr.charCodeAt(i);
-      const blob = new Blob([ab],{type:'application/pdf'});
-      const url  = URL.createObjectURL(blob);
-      window.open(url,'_blank');
-    } else throw new Error(data.error||'PDF not found');
-  } catch(e) { showToast('Could not open brochure: '+e.message,'error'); }
-}
-
-/* Download declaration form from Sheets */
-async function downloadDeclaration(evId) {
-  const ev = events.find(e=>e.id===evId);
-  if (!ev || !ev.declaration_url) { showToast('No declaration form for this event','error'); return; }
-  if (!SHEETS_URL) { showToast('Sheets not connected','error'); return; }
-  showToast('Downloading declaration form…');
-  try {
-    const res  = await fetch(SHEETS_URL + '?type=pdf&key=' + encodeURIComponent(ev.declaration_url));
-    const data = await res.json();
-    if (data.success && data.pdfData) {
-      const byteStr = atob(data.pdfData.split(',')[1]);
-      const ab = new ArrayBuffer(byteStr.length);
-      const ia = new Uint8Array(ab);
-      for(let i=0;i<byteStr.length;i++) ia[i]=byteStr.charCodeAt(i);
-      const blob = new Blob([ab],{type:'application/pdf'});
-      const url  = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href=url; a.download=data.pdfName||'declaration_form.pdf';
-      a.click(); URL.revokeObjectURL(url);
-    } else throw new Error(data.error||'File not found');
-  } catch(e) { showToast('Could not download: '+e.message,'error'); }
-}
+/* openBrochure + downloadDeclaration replaced by openEmbeddedBrochure + downloadEmbeddedDeclaration */
 
 /* Navigate to register form and pre-select the event */
 function goRegisterInterest(eventTitle) {
@@ -2896,9 +2952,9 @@ document.addEventListener('change', e => {
   const ev = events.find(ev => ev.title && title.startsWith(ev.title));
   const row = document.getElementById('declDownloadRow');
   if (!row) return;
-  if (ev && ev.declaration_url) {
+  if (ev && (ev.declaration_url || ev.declaration)) {
     row.innerHTML = `<p style="font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;">A declaration form is available for this event:</p>
-      <button type="button" onclick="downloadDeclaration('${esc(ev.id)}')" class="btn-decl">
+      <button type="button" onclick="openPdf('${esc(ev.id)}','declaration')" class="btn-decl">
         <svg viewBox="0 0 24 24" stroke-width="2.5" width="12" height="12" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download &amp; fill before uploading below
       </button>`;
@@ -2965,20 +3021,85 @@ function expRefresh() {
   Promise.all([fetchLeads(), fetchEvents()]).then(()=>initExportTab());
 }
 
+// ── Pagination state ─────────────────────────────────────────────
+const EXP_PAGE_SIZE = 10;
+let expRegPage  = 1;
+let expFilePage = 1;
+let expRegSearch  = '';
+let expFileSearch = '';
+
+function expSearchChanged() {
+  expRegSearch = (document.getElementById('expSearch')||{}).value||'';
+  expRegPage = 1;
+  expRenderPreview();
+}
+function expFileSearchChanged() {
+  expFileSearch = (document.getElementById('expFileSearch')||{}).value||'';
+  expFilePage = 1;
+  expRenderFileList();
+}
+
+function expGetFilteredSearched() {
+  const q = expRegSearch.trim().toLowerCase();
+  const base = expGetFiltered();
+  if (!q) return base;
+  return base.filter(l =>
+    (l.name||'').toLowerCase().includes(q) ||
+    (l.email||'').toLowerCase().includes(q) ||
+    (l.phone||'').toLowerCase().includes(q) ||
+    (l.ic_number||'').toLowerCase().includes(q) ||
+    (l.event||'').toLowerCase().includes(q)
+  );
+}
+
+function renderPagination(containerId, total, currentPage, pageSize, onPageClick) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  if (totalPages <= 1) { el.innerHTML = ''; return; }
+
+  // Build page numbers — show first, last, current ± 1, with ellipsis
+  const pages = new Set([1, totalPages, currentPage, currentPage-1, currentPage+1].filter(p => p >= 1 && p <= totalPages));
+  const sorted = [...pages].sort((a,b)=>a-b);
+
+  let html = `<span class="exp-pag-info">Page ${currentPage} of ${totalPages} &nbsp;·&nbsp; ${total} total</span>`;
+  html += `<button class="exp-pag-btn" onclick="${onPageClick}(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+
+  let prev = 0;
+  for (const p of sorted) {
+    if (p - prev > 1) html += `<span style="color:rgba(255,255,255,.25);font-size:.8rem;">…</span>`;
+    html += `<button class="exp-pag-btn ${p===currentPage?'active':''}" onclick="${onPageClick}(${p})">${p}</button>`;
+    prev = p;
+  }
+  html += `<button class="exp-pag-btn" onclick="${onPageClick}(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>›</button>`;
+  el.innerHTML = html;
+}
+
+function expGoRegPage(p) { expRegPage = p; expRenderPreview(); }
+function expGoFilePage(p) { expFilePage = p; expRenderFileList(); }
+
 function expRenderPreview() {
-  const src = expGetFiltered();
-  const rows = document.getElementById('expPreviewRows');
-  const count= document.getElementById('expPreviewCount');
-  const expBtn= document.getElementById('expCsvBtn');
-  count.textContent = src.length
-    ? `Showing ${Math.min(src.length,10)} of ${src.length} records (all ${src.length} will be exported)`
-    : 'No records match the current filters';
+  const src    = expGetFilteredSearched();
+  const rows   = document.getElementById('expPreviewRows');
+  const count  = document.getElementById('expPreviewCount');
+  const expBtn = document.getElementById('expCsvBtn');
   expBtn.classList.toggle('disabled', !src.length);
+
   if (!src.length) {
-    rows.innerHTML = '<div class="exp-empty">No registrations match these filters.</div>';
+    rows.innerHTML = '<div class="exp-empty">No registrations match.</div>';
+    count.textContent = '';
+    document.getElementById('expPagReg').innerHTML = '';
     return;
   }
-  rows.innerHTML = src.slice(0,10).map(l => {
+
+  const totalPages = Math.ceil(src.length / EXP_PAGE_SIZE);
+  if (expRegPage > totalPages) expRegPage = totalPages;
+  const start = (expRegPage - 1) * EXP_PAGE_SIZE;
+  const page  = src.slice(start, start + EXP_PAGE_SIZE);
+
+  count.textContent = `Showing ${start+1}–${Math.min(start+EXP_PAGE_SIZE, src.length)} of ${src.length} records (all ${src.length} exported to CSV)`;
+
+  rows.innerHTML = page.map(l => {
     const hasIC   = !!(l.ic_file && l.ic_file !== '');
     const hasDecl = !!(l.declaration_file && l.declaration_file !== '');
     const fileTag = (hasIC || hasDecl)
@@ -2997,8 +3118,10 @@ function expRenderPreview() {
       <span style="flex:.8;">${fileTag}</span>
     </div>`;
   }).join('');
+
+  renderPagination('expPagReg', src.length, expRegPage, EXP_PAGE_SIZE, 'expGoRegPage');
   document.getElementById('expExportNote').textContent =
-    src.length > 10 ? `+ ${src.length-10} more in the download` : '';
+    src.length > EXP_PAGE_SIZE ? `All ${src.length} records included in CSV export` : '';
 }
 
 function expBuildCSV(src) {
@@ -3040,24 +3163,40 @@ function expDownloadJSON() {
   showToast(`Downloaded ${src.length} records as JSON ✓`,'success');
 }
 
-/* ── Per-lead file download list ── */
+/* ── Per-lead file download list — paginated + searchable ── */
 function expRenderFileList() {
   const wrap = document.getElementById('expFileList');
   if (!wrap) return;
-  const withFiles = leads.filter(l => l.ic_file || l.declaration_file);
-  if (!withFiles.length) {
-    wrap.innerHTML = '<div class="exp-empty">No registrants have uploaded files yet.</div>';
+  const q = expFileSearch.trim().toLowerCase();
+  const all = leads.filter(l => l.ic_file || l.declaration_file);
+  const src = q ? all.filter(l =>
+    (l.name||'').toLowerCase().includes(q) ||
+    (l.event||'').toLowerCase().includes(q) ||
+    (l.ic_number||'').toLowerCase().includes(q)
+  ) : all;
+
+  if (!src.length) {
+    wrap.innerHTML = all.length
+      ? '<div class="exp-empty">No matches for your search.</div>'
+      : '<div class="exp-empty">No registrants have uploaded files yet.</div>';
+    document.getElementById('expPagFiles').innerHTML = '';
     return;
   }
-  wrap.innerHTML = withFiles.map(l => {
+
+  const totalPages = Math.ceil(src.length / EXP_PAGE_SIZE);
+  if (expFilePage > totalPages) expFilePage = totalPages;
+  const start = (expFilePage - 1) * EXP_PAGE_SIZE;
+  const page  = src.slice(start, start + EXP_PAGE_SIZE);
+
+  wrap.innerHTML = page.map(l => {
     const icBtn = l.ic_file
-      ? `<button onclick="expDownloadLeadFile('${esc(l.ic_file)}','IC_${esc(l.name||l.id)}')" class="exp-dl-btn">
+      ? `<button onclick="expDownloadLeadFile('${esc(l.ic_file)}','IC_${esc(l.name||l.id)}.pdf')" class="exp-dl-btn">
            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
            IC Copy
          </button>`
       : `<button class="exp-dl-btn disabled"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>IC Not Uploaded</button>`;
     const declBtn = l.declaration_file
-      ? `<button onclick="expDownloadLeadFile('${esc(l.declaration_file)}','Declaration_${esc(l.name||l.id)}')" class="exp-dl-btn">
+      ? `<button onclick="expDownloadLeadFile('${esc(l.declaration_file)}','Declaration_${esc(l.name||l.id)}.pdf')" class="exp-dl-btn">
            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
            Declaration
          </button>`
@@ -3069,21 +3208,27 @@ function expRenderFileList() {
       <span style="flex:2.5;"><div class="exp-dl-row">${icBtn}${declBtn}</div></span>
     </div>`;
   }).join('');
+
+  renderPagination('expPagFiles', src.length, expFilePage, EXP_PAGE_SIZE, 'expGoFilePage');
 }
 
 async function expDownloadLeadFile(fileKey, label) {
   if (!SHEETS_URL) { showToast('Sheets not connected','error'); return; }
   showToast('Fetching file…');
   try {
-    const res  = await fetch(SHEETS_URL + '?type=pdf&key=' + encodeURIComponent(fileKey));
+    const res  = await postToSheets({action:'getPdf', key: fileKey});
     const data = await res.json();
     if (!data.success || !data.pdfData) throw new Error(data.error||'File not found');
-    triggerFileDownload(data.pdfData, data.pdfName || label);
+    downloadPdfBlob(data.pdfData, data.pdfName || label, label);
     showToast('Downloaded ✓','success');
   } catch(e) { showToast('Download failed: '+e.message,'error'); }
 }
 
 function triggerFileDownload(dataUri, fileName) {
+  downloadPdfBlob(dataUri, fileName, fileName);
+}
+
+function _triggerFileDownloadOld(dataUri, fileName) {
   const parts = dataUri.split(',');
   const mime  = parts[0].match(/:(.*?);/)[1];
   const bStr  = atob(parts[1]);
@@ -3116,10 +3261,10 @@ async function expBulkDownload() {
   let done=0, failed=0;
   for (const item of toDownload) {
     try {
-      const res  = await fetch(SHEETS_URL + '?type=pdf&key=' + encodeURIComponent(item.key));
+      const res  = await postToSheets({action:'getPdf', key: item.key});
       const data = await res.json();
       if (data.success && data.pdfData) {
-        triggerFileDownload(data.pdfData, item.name);
+        downloadPdfBlob(data.pdfData, item.name, item.name);
         log.innerHTML += `<div class="ok">✅ ${item.name}</div>`;
         done++;
       } else throw new Error(data.error||'Not found');
@@ -3140,7 +3285,7 @@ async function expBulkDownload() {
 function expRenderEventFiles() {
   const wrap = document.getElementById('expEventFiles');
   if (!wrap) return;
-  const withFiles = events.filter(ev=>ev.brochure||ev.declaration_url);
+  const withFiles = events.filter(ev=>ev.brochure||(ev.declaration_url||ev.declaration||ev.declaration_data||ev.brochure_data));
   if (!withFiles.length) {
     wrap.innerHTML='<div class="exp-empty">No brochures or declaration forms uploaded to any event yet.</div>';
     return;
@@ -3151,8 +3296,9 @@ function expRenderEventFiles() {
            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Brochure
          </button>`
       : '';
-    const declBtn = ev.declaration_url
-      ? `<button onclick="expDownloadLeadFile('${esc(ev.declaration_url)}','Declaration_${esc(ev.title)}.pdf')" class="exp-dl-btn">
+    const evDeclKey = ev.declaration || ev.declaration_url || '';
+    const declBtn = evDeclKey
+      ? `<button onclick="expDownloadLeadFile('${esc(evDeclKey)}','Declaration_${esc(ev.title)}.pdf')" class="exp-dl-btn">
            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Declaration Form
          </button>`
       : '';
@@ -3163,6 +3309,89 @@ function expRenderEventFiles() {
     </div>`;
   }).join('');
 }
+
+
+/* ═══════════════════ EVENT PDF — openPdf(evId, type) ═══════════════════
+   type = 'brochure' → downloads brochure PDF
+   type = 'declaration' → downloads declaration form PDF
+   Two code paths:
+     1. Data already embedded in events array (after redeploy) — instant
+     2. Fetch via POST getPdf action — works before redeploy too
+═══════════════════════════════════════════════════════════════════════ */
+async function openPdf(evId, type) {
+  const ev = events.find(e => e.id === evId);
+  if (!ev) { showToast('Event not found','error'); return; }
+
+  const dataField = type === 'brochure' ? 'brochure_data'   : 'declaration_data';
+  const nameField = type === 'brochure' ? 'brochure_name'   : 'declaration_name';
+  const keyField  = type === 'brochure' ? 'brochure'        : 'declaration';
+  const label     = type === 'brochure' ? 'Brochure'        : 'Declaration Form';
+  const defName   = type === 'brochure' ? 'brochure.pdf'    : 'declaration_form.pdf';
+
+  let pdfData = ev[dataField];
+  let pdfName = ev[nameField] || defName;
+
+  // Path 1: already in memory
+  if (pdfData && pdfData.length > 100) {
+    downloadPdfBlob(pdfData, pdfName, label);
+    return;
+  }
+
+  // Path 2: fetch via POST
+  const key = ev[keyField];
+  if (!key || key.trim() === '') {
+    showToast('No ' + label + ' uploaded for this event','error');
+    return;
+  }
+  if (!SHEETS_URL) { showToast('Google Sheets not connected','error'); return; }
+
+  showToast('Fetching ' + label + '…');
+  try {
+    const res  = await postToSheets({action:'getPdf', key});
+    const json = await res.json();
+    if (!json.success || !json.pdfData) throw new Error(json.error || 'File not found');
+    ev[dataField] = json.pdfData;                    // cache for next click
+    ev[nameField] = json.pdfName || defName;
+    downloadPdfBlob(json.pdfData, json.pdfName || defName, label);
+  } catch(err) {
+    showToast('Could not load ' + label + ': ' + err.message,'error');
+  }
+}
+
+function downloadPdfBlob(dataUri, fileName, label) {
+  try {
+    // dataUri format: "data:application/pdf;base64,JVBER..."
+    // Split on first comma only
+    const commaIdx = dataUri.indexOf(',');
+    if (commaIdx === -1) throw new Error('Invalid data URI');
+    const base64 = dataUri.slice(commaIdx + 1);
+    const binary  = atob(base64);
+    const bytes   = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    const blob = new Blob([bytes], {type: 'application/pdf'});
+    const url  = URL.createObjectURL(blob);
+    // Always trigger download — most reliable across all browsers
+    const a = document.createElement('a');
+    a.href     = url;
+    a.download = fileName;
+    a.target   = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 3000);
+    showToast(label + ' downloaded ✓','success');
+  } catch(e) {
+    showToast('Could not open PDF: ' + e.message,'error');
+  }
+}
+
+// Legacy aliases — all route through openPdf
+function openEmbeddedBrochure(evId)       { openPdf(evId,'brochure'); }
+function downloadEmbeddedDeclaration(evId){ openPdf(evId,'declaration'); }
+function openEventDetails(evId)           { openPdf(evId,'brochure'); }
+function openBrochure(evId)               { openPdf(evId,'brochure'); }
+function downloadDeclaration(evId)        { openPdf(evId,'declaration'); }
+function closeEvDetailModal()             { const m=document.getElementById('evDetailModal'); if(m) m.classList.remove('active'); document.body.style.overflow=''; }
 
 
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>20));
