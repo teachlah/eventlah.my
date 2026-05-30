@@ -697,6 +697,24 @@
     .exp-search { background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.1); border-radius:8px; padding:.45rem .75rem; font-size:.8rem; color:#fff; font-family:var(--font-body); outline:none; width:100%; margin-bottom:.75rem; transition:border-color .2s; }
     .exp-search:focus { border-color:rgba(200,146,42,.45); }
     .exp-search::placeholder { color:rgba(255,255,255,.25); }
+
+    /* ═══ HERO SLIDESHOW ═══ */
+    .hero-img-wrap { position:relative; border-radius:22px; overflow:hidden; border:1px solid rgba(255,255,255,.1); box-shadow:0 40px 100px rgba(0,0,0,.5); }
+    .hero-slide { position:absolute; inset:0; opacity:0; transition:opacity .9s ease; }
+    .hero-slide.active { opacity:1; position:relative; }
+    .hero-slide img { width:100%; height:480px; object-fit:cover; display:block; }
+    .hero-slide-dots { position:absolute; bottom:.75rem; left:50%; transform:translateX(-50%); display:flex; gap:.4rem; z-index:5; }
+    .hero-dot-btn { width:7px; height:7px; border-radius:99px; background:rgba(255,255,255,.35); border:none; cursor:pointer; padding:0; transition:background .25s,width .25s; }
+    .hero-dot-btn.active { background:#fff; width:20px; }
+    .hero-slide-label { position:absolute; bottom:2.5rem; left:1rem; right:1rem; background:rgba(10,15,30,.72); backdrop-filter:blur(6px); border-radius:10px; padding:.55rem .85rem; font-size:.74rem; font-weight:600; color:#fff; line-height:1.3; z-index:5; display:none; }
+    .hero-slide-label.show { display:block; }
+    .hero-slide-label span { color:var(--gold-light); font-size:.65rem; font-weight:400; display:block; }
+    .hero-slide-nav { position:absolute; top:50%; transform:translateY(-50%); z-index:6; background:rgba(255,255,255,.15); backdrop-filter:blur(4px); border:none; border-radius:50%; width:32px; height:32px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#fff; transition:background .2s; }
+    .hero-slide-nav:hover { background:rgba(255,255,255,.28); }
+    .hero-slide-nav.prev { left:.7rem; }
+    .hero-slide-nav.next { right:.7rem; }
+    .hero-slide-nav svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2.5; }
+    @media(max-width:640px){ .hero-slide img{height:240px;} }
   </style>
 </head>
 <body>
@@ -717,9 +735,7 @@
       <a href="#register" class="btn btn-gold">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Register
       </a>
-      <button id="adminLoginBtn" onclick="openAdminLogin()" class="btn btn-ink">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Admin
-      </button>
+      <!-- Admin button removed — access via ?admin=1 in URL -->
       <button id="adminLogoutBtn" onclick="adminLogout()" class="btn btn-danger hidden">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Logout
       </button>
@@ -746,7 +762,14 @@
       </div>
     </div>
     <div class="hero-visual fade-up d2">
-      <div class="hero-img-wrap"><img id="heroImage" src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1400&auto=format&fit=crop" alt="Vetri Madani"/></div>
+      <div class="hero-img-wrap" id="heroSlideWrap">
+        <!-- Slides injected by JS after events load -->
+        <img id="heroImage" src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1400&auto=format&fit=crop" alt="Vetri Madani" style="width:100%;height:480px;object-fit:cover;display:block;"/>
+        <button class="hero-slide-nav prev" onclick="heroSlide(-1)" aria-label="Previous"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="hero-slide-nav next" onclick="heroSlide(1)"  aria-label="Next"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="hero-slide-dots" id="heroSlideDots"></div>
+        <div class="hero-slide-label" id="heroSlideLabel"></div>
+      </div>
       <div class="hero-float">
         <div class="float-avs"><img src="https://i.pravatar.cc/64?img=11" alt=""/><img src="https://i.pravatar.cc/64?img=22" alt=""/><img src="https://i.pravatar.cc/64?img=33" alt=""/></div>
         <div class="float-txt"><p>Next event filling fast</p><strong>Limited seats remaining</strong></div>
@@ -1678,7 +1701,7 @@ function jsonOut(obj) {
       <div class="ft-col"><h5>Programme</h5><a href="#modules">Wealth Fundamentals</a><a href="#modules">Retirement Planning</a><a href="#modules">Smart Investing</a></div>
       <div class="ft-col" id="ftColContact"><h5 id="ftColContact_title">Contact</h5><a href="mailto:info@vetrimadani.com">info@vetrimadani.com</a><a href="https://wa.me/601234567890" target="_blank">WhatsApp Us</a><a href="#">Facebook</a><a href="#">Instagram</a></div>
     </div>
-    <div class="ft-bottom"><span>© <span id="year"></span> Vetri Madani. All rights reserved.</span><span>Crafted for financial empowerment.</span></div>
+    <div class="ft-bottom"><span>© <span id="year"></span> MFPC. All rights reserved.</span><span>Crafted for financial empowerment.</span></div>
   </div>
 </footer>
 
@@ -1737,6 +1760,13 @@ async function init() {
 function isAdmin() { return sessionStorage.getItem(AUTH_KEY) === 'true'; }
 
 function applyAdminUI() {
+  // Check for secret URL param — ?admin=1 or ?admin=vetri triggers login modal
+  const urlParam = new URLSearchParams(window.location.search).get('admin');
+  if (urlParam !== null && !isAdmin()) {
+    // Clean the URL so the param isn't visible after login
+    history.replaceState({}, '', window.location.pathname + window.location.hash);
+    openAdminLogin();
+  }
   if (isAdmin()) {
     document.body.classList.add('admin-active');
     document.getElementById('adminLogoutBtn').classList.remove('hidden');
@@ -2008,7 +2038,8 @@ function renderEventCards(evList) {
 
   // update hero image
   const first = evList.find(e => e.image);
-  if (first) document.getElementById('heroImage').src = first.image;
+  // Hero slideshow is built after events load
+  buildHeroSlideshow();
   populateEventSelect();
   setTimeout(startAllCountdowns, 100);
 }
@@ -2470,8 +2501,9 @@ function applyContent(c) {
   const subEl = document.querySelector('.hero-sub');
   if (subEl) subEl.textContent = c.heroSub || DEFAULT_CONTENT.heroSub;
   // Hero image
+  // heroImage is used as the fallback slide when no events have images
   const heroImg = document.getElementById('heroImage');
-  if (heroImg && c.heroImage) heroImg.src = c.heroImage;
+  if (heroImg && c.heroImage) { heroImg.src = c.heroImage; heroFallbackImage = c.heroImage; }
   // Stats
   const statNums = document.querySelectorAll('.stat-num');
   const statLabels = document.querySelectorAll('.stat-label');
@@ -3392,6 +3424,118 @@ function openEventDetails(evId)           { openPdf(evId,'brochure'); }
 function openBrochure(evId)               { openPdf(evId,'brochure'); }
 function downloadDeclaration(evId)        { openPdf(evId,'declaration'); }
 function closeEvDetailModal()             { const m=document.getElementById('evDetailModal'); if(m) m.classList.remove('active'); document.body.style.overflow=''; }
+
+
+/* ═══════════════════ HERO SLIDESHOW ═══════════════════════════
+   Builds a smooth auto-rotating carousel from event banner images.
+   Falls back to heroFallbackImage if no events have images.
+═══════════════════════════════════════════════════════════════ */
+let heroFallbackImage = 'https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1400&auto=format&fit=crop';
+let heroSlides   = [];   // [{src, title, date}]
+let heroCurrent  = 0;
+let heroTimer    = null;
+const HERO_INTERVAL = 4000; // ms per slide
+
+function buildHeroSlideshow() {
+  const wrap = document.getElementById('heroSlideWrap');
+  if (!wrap) return;
+
+  // Collect event images — skip events with no image or placeholder
+  const evSlides = events
+    .filter(ev => ev.image && !ev.image.startsWith('http') ? true : ev.image)
+    .map(ev => ({ src: ev.image || heroFallbackImage, title: ev.title, date: ev.date || '' }))
+    .filter(s => s.src && s.src.length > 10);
+
+  // Deduplicate by src
+  const seen = new Set();
+  heroSlides = evSlides.filter(s => { if (seen.has(s.src)) return false; seen.add(s.src); return true; });
+
+  // If no event images, use the fallback hero image as single slide
+  if (!heroSlides.length) {
+    heroSlides = [{ src: heroFallbackImage, title: '', date: '' }];
+  }
+
+  heroCurrent = 0;
+  renderHeroSlides();
+  startHeroTimer();
+}
+
+function renderHeroSlides() {
+  const wrap = document.getElementById('heroSlideWrap');
+  if (!wrap) return;
+
+  // Build slide img elements (replace the static heroImage)
+  const staticImg = document.getElementById('heroImage');
+  // Remove old dynamic slides (not the static img, nav buttons, dots, label)
+  wrap.querySelectorAll('.hero-slide').forEach(el => el.remove());
+
+  // If only one slide, hide nav buttons
+  const navBtns = wrap.querySelectorAll('.hero-slide-nav');
+  navBtns.forEach(b => b.style.display = heroSlides.length > 1 ? 'flex' : 'none');
+
+  // Hide/show static img
+  if (staticImg) staticImg.style.display = 'none';
+
+  // Insert slides before the nav buttons
+  const prevBtn = wrap.querySelector('.hero-slide-nav.prev');
+  heroSlides.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'hero-slide' + (i === 0 ? ' active' : '');
+    div.dataset.idx = i;
+    const img = document.createElement('img');
+    img.src = s.src;
+    img.alt = s.title || 'Event';
+    img.loading = 'lazy';
+    img.onerror = () => { img.src = heroFallbackImage; };
+    div.appendChild(img);
+    wrap.insertBefore(div, prevBtn);
+  });
+
+  // Build dots
+  const dots = document.getElementById('heroSlideDots');
+  if (dots) {
+    dots.style.display = heroSlides.length > 1 ? 'flex' : 'none';
+    dots.innerHTML = heroSlides.map((_, i) =>
+      `<button class="hero-dot-btn${i===0?' active':''}" onclick="heroGoTo(${i})" aria-label="Slide ${i+1}"></button>`
+    ).join('');
+  }
+
+  updateHeroLabel(0);
+}
+
+function updateHeroLabel(idx) {
+  const label = document.getElementById('heroSlideLabel');
+  if (!label) return;
+  const s = heroSlides[idx];
+  if (s && s.title) {
+    label.className = 'hero-slide-label show';
+    label.innerHTML = esc(s.title) + (s.date ? `<span>${esc(s.date)}</span>` : '');
+  } else {
+    label.className = 'hero-slide-label';
+  }
+}
+
+function heroGoTo(idx) {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot-btn');
+  if (!slides.length) return;
+  slides[heroCurrent]?.classList.remove('active');
+  dots[heroCurrent]?.classList.remove('active');
+  heroCurrent = (idx + heroSlides.length) % heroSlides.length;
+  slides[heroCurrent]?.classList.add('active');
+  dots[heroCurrent]?.classList.add('active');
+  updateHeroLabel(heroCurrent);
+  // Restart timer on manual nav
+  startHeroTimer();
+}
+
+function heroSlide(dir) { heroGoTo(heroCurrent + dir); }
+
+function startHeroTimer() {
+  clearInterval(heroTimer);
+  if (heroSlides.length < 2) return;
+  heroTimer = setInterval(() => heroGoTo(heroCurrent + 1), HERO_INTERVAL);
+}
 
 
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>20));
